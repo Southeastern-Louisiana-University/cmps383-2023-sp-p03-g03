@@ -12,11 +12,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "preinstall": "node aspnetcore-react",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+   
+    "start": "set EXPO_PACKAGER_PROXY_URL=http://80ef4cb5aa5e.ngrok.io && expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
   },
   "eslintConfig": {
     "extends": [
