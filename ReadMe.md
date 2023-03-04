@@ -1,4 +1,4 @@
-### EnTrack Team #3
+# EnTrack Team #3
 
 # How to run the app locally
 
