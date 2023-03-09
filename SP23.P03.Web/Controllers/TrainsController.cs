@@ -57,6 +57,27 @@ namespace SP23.P03.Web.Controllers
             return CreatedAtAction(nameof(GetTrainById), new {id = dto.Id}, dto);
         }
 
+        [HttpPut]
+        [Route("{id}")]
+        public ActionResult<TrainDto> UpdateTrain(int id, TrainDto dto)
+        {
+            if (IsInvalid(dto))
+            {
+                return BadRequest();
+            }
+            var train = trains.FirstOrDefault(x => x.Id == id);
+            if (train == null)
+            {
+                return NotFound();
+            }
+
+            train.Type= dto.Type;
+            train.Occupancy= dto.Occupancy;
+            dataContext.SaveChanges();
+            dto.Id = train.Id;
+            return Ok(dto);
+        }
+
         private IQueryable<TrainDto> GetTrainDtos(IQueryable<Train> trains)
         {
             return trains
