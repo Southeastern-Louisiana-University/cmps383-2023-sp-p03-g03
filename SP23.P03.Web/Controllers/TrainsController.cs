@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32.SafeHandles;
 using SP23.P03.Web.Data;
+using SP23.P03.Web.Features.Authorization;
 using SP23.P03.Web.Features.TrainStations;
 
 namespace SP23.P03.Web.Controllers
@@ -35,6 +38,25 @@ namespace SP23.P03.Web.Controllers
             return Ok(result);
         }
 
+        [HttpPost]
+        public ActionResult<TrainDto> CreateTrain(TrainDto dto)
+        {
+            if (IsInvalid(dto))
+            {
+                return BadRequest();
+            }
+            var train = new Train
+            {
+                Type = dto.Type,
+                Occupancy = dto.Occupancy,
+               
+            };
+            trains.Add(train);
+            dataContext.SaveChanges();
+            dto.Id = train.Id;
+            return CreatedAtAction(nameof(GetTrainById), new {id = dto.Id}, dto);
+        }
+
         private IQueryable<TrainDto> GetTrainDtos(IQueryable<Train> trains)
         {
             return trains
@@ -44,6 +66,28 @@ namespace SP23.P03.Web.Controllers
                     Type = x.Type,
                     Occupancy = x.Occupancy,
             });
+        }
+        private bool IsInvalid(TrainDto dto)
+        {
+            return string.IsNullOrWhiteSpace(dto.Type) ||
+                   dto.Type.Length > 120 ||
+                   dto.Occupancy == 0 ||
+                   dto.Occupancy > 500;
+                   
+        }
+        private bool InvalidManagerId(int? managerId)
+        {
+            if (managerId == null)
+            {
+                return false;
+            }
+
+            if (!User.IsInRole(RoleNames.Admin))
+            {
+                // only admins can change manager ids anyway
+                return false;
+            }
+            return !dataContext.Set<User>().Any(x => x.Id == managerId);
         }
     }
 }

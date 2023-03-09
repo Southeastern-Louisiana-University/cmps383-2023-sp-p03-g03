@@ -12,7 +12,7 @@ namespace SP23.P03.Web.Features.TrainStations
             .IsRequired();
 
             builder.Property(x => x.Occupancy)
-            .HasMaxLength(int.MaxValue)
+            .HasMaxLength(500)
             .IsRequired();
         }
     }
