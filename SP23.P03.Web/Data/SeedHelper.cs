@@ -23,24 +23,35 @@ public static class SeedHelper
     private static async Task AddTrain(DataContext dataContext)
     {
         var trains = dataContext.Set<Train>();
-        if (await trains.AnyAsync())
+
+        //fix this
+        if (!trains.Any(x => x.Type == "Passanger"))
         {
-            return;
+            dataContext.Set<Train>()
+                   .Add(new Train
+                   {
+                       Type = "Passanger",
+                       Occupancy = 500,
+                   });
         }
-        //fix this 
-        dataContext.Set<Train>()
-               .Add(new Train
-               {
-                   Type = "Passanger",
-                   Occupancy = 500,
-               });
-        
-        dataContext.Set<Train>()
-               .Add(new Train
-               {
-                   Type = "Sleeper",
-                   Occupancy = 250,
-               });
+        if (!trains.Any(x => x.Type == "Sleeper"))
+        {
+            dataContext.Set<Train>()
+                   .Add(new Train
+                   {
+                       Type = "Sleeper",
+                       Occupancy = 250,
+                   });
+        }
+        if (!trains.Any(x => x.Type == "Luxury Passanger"))
+        {
+            dataContext.Set<Train>()
+                   .Add(new Train
+                   {
+                       Type = "Luxury Passanger",
+                       Occupancy = 200,
+                   });
+        }
         await dataContext.SaveChangesAsync();
     }
 
