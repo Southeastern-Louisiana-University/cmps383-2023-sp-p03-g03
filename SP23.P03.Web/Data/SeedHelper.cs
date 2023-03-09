@@ -24,7 +24,6 @@ public static class SeedHelper
     {
         var trains = dataContext.Set<Train>();
 
-        //fix this
         if (!trains.Any(x => x.Type == "Passanger"))
         {
             dataContext.Set<Train>()

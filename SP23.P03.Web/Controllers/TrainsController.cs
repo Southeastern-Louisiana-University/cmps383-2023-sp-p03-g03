@@ -23,6 +23,18 @@ namespace SP23.P03.Web.Controllers
             return GetTrainDtos(trains);
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public ActionResult<TrainDto> GetTrainById(int id)
+        {
+            var result = GetTrainDtos(trains.Where (x => x.Id == id)).FirstOrDefault();
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
         private IQueryable<TrainDto> GetTrainDtos(IQueryable<Train> trains)
         {
             return trains
