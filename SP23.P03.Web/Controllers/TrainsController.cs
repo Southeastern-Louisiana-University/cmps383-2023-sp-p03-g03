@@ -77,6 +77,19 @@ namespace SP23.P03.Web.Controllers
             dto.Id = train.Id;
             return Ok(dto);
         }
+        [HttpDelete]
+        [Route("{id}")]
+        public ActionResult DeleteTrain(int id)
+        {
+            var train = trains.FirstOrDefault(x =>x.Id == id);
+            if (train == null)
+            {
+                return NotFound();
+            }
+            trains.Remove(train);
+            dataContext.SaveChanges();
+            return Ok();
+        }
 
         private IQueryable<TrainDto> GetTrainDtos(IQueryable<Train> trains)
         {
