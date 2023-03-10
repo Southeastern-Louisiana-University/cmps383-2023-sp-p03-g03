@@ -5,6 +5,7 @@ function App() {
   return (
     <div className ="app">
       THIS IS THE LANDING PAGE
+      This is where you first land upon starting your front end
       </div>
  
   );
