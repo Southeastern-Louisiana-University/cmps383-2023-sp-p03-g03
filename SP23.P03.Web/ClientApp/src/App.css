@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+.image-container {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+
+}
+
+.h1tester {
+  color: white;
+  font-size: 3rem;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+}

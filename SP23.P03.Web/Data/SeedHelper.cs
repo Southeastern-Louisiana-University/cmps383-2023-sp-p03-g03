@@ -17,6 +17,41 @@ public static class SeedHelper
         await AddUsers(serviceProvider);
 
         await AddTrainStation(dataContext);
+        await AddTrain(dataContext);
+    }
+
+    private static async Task AddTrain(DataContext dataContext)
+    {
+        var trains = dataContext.Set<Train>();
+
+        if (!trains.Any(x => x.Type == "Passanger"))
+        {
+            dataContext.Set<Train>()
+                   .Add(new Train
+                   {
+                       Type = "Passanger",
+                       Occupancy = 500,
+                   });
+        }
+        if (!trains.Any(x => x.Type == "Sleeper"))
+        {
+            dataContext.Set<Train>()
+                   .Add(new Train
+                   {
+                       Type = "Sleeper",
+                       Occupancy = 250,
+                   });
+        }
+        if (!trains.Any(x => x.Type == "Luxury Passanger"))
+        {
+            dataContext.Set<Train>()
+                   .Add(new Train
+                   {
+                       Type = "Luxury Passanger",
+                       Occupancy = 200,
+                   });
+        }
+        await dataContext.SaveChangesAsync();
     }
 
     private static async Task AddUsers(IServiceProvider serviceProvider)
