@@ -1,0 +1,36 @@
+.abstract-img {
+    size: cover;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .ttmg {
+    position: fixed;
+    top: 240px;
+    bottom: 15px;
+    left: 335px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .home-page-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .home-items {
+    display:flex;
+    flex-direction: column;
+  }
+  
+  .whitename{
+    position: fixed;
+    top: 50%;
+    bottom: 50%;
+    right: 45%;
+    color: white;
+    font-size: 100cm;
+  }
