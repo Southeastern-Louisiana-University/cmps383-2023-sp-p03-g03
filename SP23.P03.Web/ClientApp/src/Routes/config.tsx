@@ -3,4 +3,5 @@
 */
 export const routes = {
     home : '/',
+    signup: '/SignUp'
   }
