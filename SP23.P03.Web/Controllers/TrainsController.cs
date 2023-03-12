@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32.SafeHandles;
 using SP23.P03.Web.Data;
 using SP23.P03.Web.Features.Authorization;
-using SP23.P03.Web.Features.TrainStations;
+using SP23.P03.Web.Features.Trains;
 
 namespace SP23.P03.Web.Controllers
 {

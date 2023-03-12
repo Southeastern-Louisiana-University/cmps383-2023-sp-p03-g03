@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace SP23.P03.Web.Features.TrainStations
+namespace SP23.P03.Web.Features.Trains
 {
     public class TrainConfiguration : IEntityTypeConfiguration<Train>
     {
