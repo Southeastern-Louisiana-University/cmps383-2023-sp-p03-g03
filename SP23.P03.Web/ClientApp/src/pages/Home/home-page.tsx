@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate} from 'react-router-dom';
 import { routes } from '../../Routes/config';
-//import './Home/home-page.css';
+import '../Home/home-page.css';
 
 
 export function HomePage(): React.ReactElement {
