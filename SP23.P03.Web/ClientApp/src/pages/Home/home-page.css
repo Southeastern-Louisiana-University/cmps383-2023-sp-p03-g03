@@ -56,7 +56,7 @@ nav .menu{
   color: black;
 }
 .img{
-  background: url("traintrack.png")no-repeat;
+  background: url('../../assets/traintrack.png')no-repeat;
   width: 100%;
   height: 100vh;
   background-size: cover;
