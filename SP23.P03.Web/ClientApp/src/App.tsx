@@ -5,7 +5,7 @@ import { AboutPage } from './pages/About/about';
 import { HomePage } from './pages/Home/home-page';
 import { LoginPage } from './pages/Login-Page/login-page';
 import { NotFoundPage } from './pages/NotFound/notfound-page';
-import { SignUpPage } from './pages/SignUp-Page/signUp-Page';
+import { SignUpPage } from './pages/SignUp-Page/signup-page';
 import { routes } from './Routes/config';
 
 

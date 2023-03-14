@@ -11,17 +11,10 @@
   padding: 90px 0;
   background: #ddd;
 }
-.png{
-  background: url('../../assets/hammondstation.png')no-repeat;
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
+
 .pic{
-  height: auto;
-  width:  302px;
+  height: 500px;
+  width:  475px;
 }
 .about{
   width: 1130px;

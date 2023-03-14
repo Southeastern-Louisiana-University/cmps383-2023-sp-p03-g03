@@ -68,6 +68,7 @@ export function SignUpPage(): React.ReactElement {
     </div>
   </div>
 
+
 </div>
     );
 
