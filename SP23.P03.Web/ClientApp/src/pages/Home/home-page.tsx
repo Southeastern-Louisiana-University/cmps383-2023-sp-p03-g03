@@ -15,11 +15,13 @@ export function HomePage(): React.ReactElement {
         <a href="/#">Entrack</a>
       </div>
       <ul>
-        <li><a href="/#">Home</a></li>
-        <li><a href="/#">About</a></li>
-        <li><a href="/#">Services</a></li>
-        <li><a href="/#">Contact</a></li>
-        <li><a href="/#">Feedback</a></li>
+        <li><button className='buttonhomenav' onClick={() => {navigate(routes.home)}}>Home</button></li>
+        <li><button className='buttonhomenav' onClick={() => {navigate(routes.about)}}>About</button></li>
+        <li><button className='buttonhomenav'>Destinations</button></li>
+        <li><button className='buttonhomenav'>Tickets</button></li>
+        <li><button className='buttonhomenav'>Rewards</button></li>
+        <li><button className='buttonhomenav'>Support</button></li>
+        <li><button className='buttonhomenav'>More</button></li>
       </ul>
     </div>
   </nav>
@@ -28,7 +30,7 @@ export function HomePage(): React.ReactElement {
     <div className="title">Come Coasting Today!</div>
     <div className="sub_title">Trips For Everyone</div>
     <div className="btns">
-      <button>Sign-In</button>
+      <button onClick={() => {navigate(routes.login)}}>Sign-In</button>
       <button onClick={() => {navigate(routes.signup)}}>Sign-Up</button>
     </div>
   </div>
