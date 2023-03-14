@@ -3,5 +3,7 @@
 */
 export const routes = {
     home : '/',
-    signup: '/SignUp'
+    signup: '/SignUp',
+    login: '/Login',
+    about: '/About'
   }
