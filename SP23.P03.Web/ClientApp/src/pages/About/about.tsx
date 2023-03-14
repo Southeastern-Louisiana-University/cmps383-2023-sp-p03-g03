@@ -11,7 +11,7 @@ export function AboutPage(): React.ReactElement {
 <body>
   <section className="about-us">
     <div className="about">
-    <img src="./hammondstation.png" className="pic"></img>
+<div className="png"></div> 
       <div className="text">
         <h2>About Us</h2>
         <h5><span  className='aboutspan'>Locomotive Transportation Company</span></h5>

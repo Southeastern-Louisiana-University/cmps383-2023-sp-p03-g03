@@ -20,14 +20,14 @@ export function LoginPage(): React.ReactElement {
             <i className="fas fa-lock"></i>
             <input type="password" placeholder="Password" required></input>
           </div>
-          <div className="pass"><a href="#">Forgot password?</a></div>
+          <div className="pass"><a href="/#">Forgot password?</a></div>
           <div className="row button">
             <input type="submit" value="Login"></input>
           </div>
           <div>
           <center><button className="buttonsloginpage" onClick={() => {navigate(routes.home)}}>Home</button></center>
         </div>
-          <div className="signup4login-link">Not a member? <a href="#">Signup now</a></div>
+          <div className="signup4login-link">Not a member? <a href="/#">Signup now</a></div>
         </form>
       </div>
     </div>
