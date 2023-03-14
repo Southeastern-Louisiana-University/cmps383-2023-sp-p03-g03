@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../Routes/config";
 import '../Login-Page/login-page.css';
@@ -27,7 +27,7 @@ export function LoginPage(): React.ReactElement {
           <div>
           <center><button className="buttonsloginpage" onClick={() => {navigate(routes.home)}}>Home</button></center>
         </div>
-          <div className="signup4login-link">Not a member? <a href="/#">Signup now</a></div>
+          <div className="signup4login-link">Not a member? <a href="/SignUp">Signup now</a></div>      
         </form>
       </div>
     </div>
