@@ -12,6 +12,8 @@
   align-items: center;
   padding: 10px;
   background: #1b1b1b;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 .container{
   max-width: 700px;

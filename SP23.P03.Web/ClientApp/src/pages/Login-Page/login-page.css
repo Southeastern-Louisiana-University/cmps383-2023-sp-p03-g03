@@ -7,7 +7,8 @@
 }
 body{
   background: #1b1b1b;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 ::selection{
   background: rgba(26,188,156,0.3);

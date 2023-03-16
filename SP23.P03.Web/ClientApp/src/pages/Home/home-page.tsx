@@ -12,7 +12,7 @@ export function HomePage(): React.ReactElement {
   <nav>
     <div className="menu">
       <div className="logo">
-        <a href="/#">Entrack</a>
+        <a href="/#">EnTrack</a>
       </div>
       <ul>
         <li><button className='buttonhomenav' onClick={() => {navigate(routes.home)}}>Home</button></li>
