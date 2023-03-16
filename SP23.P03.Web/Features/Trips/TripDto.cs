@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Diagnostics;
-using SP23.P03.Web.Features.Destinations;
+﻿using SP23.P03.Web.Features.Destinations;
 
 namespace SP23.P03.Web.Features.Trips
 {
-    public class Trip
+    public class TripDto
     {
         public int Id { get; set; }
         public DateTimeOffset TripDate { get; set; }
