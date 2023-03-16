@@ -30,7 +30,7 @@ public static class SeedHelper
                    .Add(new Train
                    {
                        Type = "Passanger",
-                       Occupancy = 500,
+                       MaxTicketCount = 500,
                    });
         }
         if (!trains.Any(x => x.Type == "Sleeper"))
@@ -39,7 +39,7 @@ public static class SeedHelper
                    .Add(new Train
                    {
                        Type = "Sleeper",
-                       Occupancy = 250,
+                       MaxTicketCount = 250,
                    });
         }
         if (!trains.Any(x => x.Type == "Luxury Passanger"))
@@ -48,7 +48,7 @@ public static class SeedHelper
                    .Add(new Train
                    {
                        Type = "Luxury Passanger",
-                       Occupancy = 200,
+                       MaxTicketCount = 200,
                    });
         }
         await dataContext.SaveChangesAsync();

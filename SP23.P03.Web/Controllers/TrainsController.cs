@@ -48,7 +48,7 @@ namespace SP23.P03.Web.Controllers
             var train = new Train
             {
                 Type = dto.Type,
-                Occupancy = dto.Occupancy,
+                MaxTicketCount = dto.MaxTicketCount,
                
             };
             trains.Add(train);
@@ -72,7 +72,7 @@ namespace SP23.P03.Web.Controllers
             }
 
             train.Type= dto.Type;
-            train.Occupancy= dto.Occupancy;
+            train.MaxTicketCount= dto.MaxTicketCount;
             dataContext.SaveChanges();
             dto.Id = train.Id;
             return Ok(dto);
@@ -98,15 +98,15 @@ namespace SP23.P03.Web.Controllers
             {
                     Id = x.Id,
                     Type = x.Type,
-                    Occupancy = x.Occupancy,
+                    MaxTicketCount = x.MaxTicketCount,
             });
         }
         private bool IsInvalid(TrainDto dto)
         {
             return string.IsNullOrWhiteSpace(dto.Type) ||
                    dto.Type.Length > 120 ||
-                   dto.Occupancy == 0 ||
-                   dto.Occupancy > 500;
+                   dto.MaxTicketCount == 0 ||
+                   dto.MaxTicketCount > 500;
                    
         }
         private bool InvalidManagerId(int? managerId)

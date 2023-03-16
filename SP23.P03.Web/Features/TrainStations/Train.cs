@@ -4,6 +4,6 @@
     {
         public int Id { get; set; }
         public string Type { get; set; }
-        public int Occupancy { get; set; }
+        public int MaxTicketCount { get; set; }
     }
 }
