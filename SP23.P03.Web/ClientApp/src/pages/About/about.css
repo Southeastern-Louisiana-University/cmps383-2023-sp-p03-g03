@@ -13,6 +13,7 @@
 }
 
 .pic{
+  white-space: nowrap;
   height: 500px;
   width:  475px;
 }
