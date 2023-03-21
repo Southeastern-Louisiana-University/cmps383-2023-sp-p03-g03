@@ -89,7 +89,7 @@ namespace SP23.P03.Web.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        [Authorize]
+        //[Authorize]
         public ActionResult DeleteDestination(int id) 
         { 
             var destination = destinations.FirstOrDefault(x => x.Id == id);
@@ -111,8 +111,8 @@ namespace SP23.P03.Web.Controllers
         private bool IsInvalid(DestinationDto dto)
         {
             return string.IsNullOrWhiteSpace(dto.City) ||
-                string.IsNullOrWhiteSpace(dto.State) ||
-                InvalidStationId(dto.TrainStationId);
+                string.IsNullOrWhiteSpace(dto.State);
+                
         }
 
         private bool InvalidStationId(int? TrainStationId)
