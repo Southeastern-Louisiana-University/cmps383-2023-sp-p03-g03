@@ -104,7 +104,7 @@ public class StationsController : ControllerBase
     [Authorize]
     public ActionResult DeleteStation(int id)
     {
-        var station = stations.FirstOrDefault(x => x.Id == id);
+       var station = stations.FirstOrDefault(x => x.Id == id);
         if (station == null)
         {
             return NotFound();
@@ -114,7 +114,7 @@ public class StationsController : ControllerBase
         {
             return Forbid();
         }
-
+ 
         stations.Remove(station);
 
         dataContext.SaveChanges();

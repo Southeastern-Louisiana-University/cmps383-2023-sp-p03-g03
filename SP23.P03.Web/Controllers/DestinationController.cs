@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Win32.SafeHandles;
 using SP23.P03.Web.Data;
 using SP23.P03.Web.Extensions;
 using SP23.P03.Web.Features.Authorization;
@@ -23,13 +24,13 @@ namespace SP23.P03.Web.Controllers
             destinations = dataContext.Set<Destination>();
         }
 
-        [HttpGet]
+        [HttpGet] //Get all
         public IQueryable<DestinationDto> GetDestinations()
         {
             return GetDestinationDtos(destinations);
         }
 
-        [HttpGet]
+        [HttpGet] // Get by Id
         [Route("{id}")]
         public ActionResult<DestinationDto> GetDestinationById(int id)
         {
@@ -47,10 +48,43 @@ namespace SP23.P03.Web.Controllers
 
         [HttpPost]
         //needs authorization here, refer to stations controller
-
         public ActionResult<DestinationDto> CreateDestination(DestinationDto dto)
         {
-            
+            if (IsInvalid(dto))
+            {
+                return BadRequest();
+            }
+            var destination = new Destination
+            {
+                City = dto.City,
+                State = dto.State,
+                TrainStationId = dto.TrainStationId,
+            };
+            destinations.Add(destination);
+            dataContext.SaveChanges();
+            dto.Id = destination.Id;
+            return CreatedAtAction(nameof(GetDestinationById), new {id = dto.Id}, dto);
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public ActionResult<DestinationDto> UpdateDestination(int id, DestinationDto dto)
+        {
+            if (IsInvalid(dto))
+            {
+                return BadRequest();
+            }
+            var destination = destinations.FirstOrDefault(x => x.Id == id);
+            if (destination == null)
+            {
+            return NotFound();
+            }
+            destination.City = dto.City;
+            destination.State = dto.State;
+            destination.TrainStationId = dto.TrainStationId;
+            dataContext.SaveChanges();
+            dto.Id = destination.Id;
+            return Ok(dto);
         }
 
         [HttpDelete]
@@ -74,8 +108,21 @@ namespace SP23.P03.Web.Controllers
             return Ok();
         }
 
+        private bool IsInvalid(DestinationDto dto)
+        {
+            return string.IsNullOrWhiteSpace(dto.City) ||
+                string.IsNullOrWhiteSpace(dto.State) ||
+                InvalidStationId(dto.TrainStationId);
+        }
 
-
+        private bool InvalidStationId(int? TrainStationId)
+        {
+            if (TrainStationId == null)
+            {
+                return false;
+            }
+            return true;
+        }
 
         private static IQueryable<DestinationDto> GetDestinationDtos(IQueryable<Destination> destinations)
         {
