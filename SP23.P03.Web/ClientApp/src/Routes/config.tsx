@@ -5,5 +5,10 @@ export const routes = {
     home : '/',
     signup: '/SignUp',
     login: '/Login',
-    about: '/About'
+    about: '/About',
+    destinations: '/Destinations',
+    tickets: '/Tickets',
+    rewards: '/Rewards',
+    support: '/Support',
+    more: '/More'
   }

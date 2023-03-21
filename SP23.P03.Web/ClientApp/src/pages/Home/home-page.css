@@ -13,7 +13,7 @@
 }
 nav{
   position: fixed;
-  background: #1b1b1b;
+  background: #a5b4fc;
   width: 100%;
   padding: 10px 0;
   z-index: 12;
@@ -121,12 +121,11 @@ nav .menu{
 
 .buttonhomenav{
   text-decoration: none;
-  color: white;
-  background: #1b1b1b;
+  color: #1b1b1b;
   font-size: 18px;
   font-weight: 500;
   padding: 8px 15px;
-  border-color: white;
+  border-color: #1b1b1b;
   border-radius: 5px;
   transition: all 0.3s ease;
 }
