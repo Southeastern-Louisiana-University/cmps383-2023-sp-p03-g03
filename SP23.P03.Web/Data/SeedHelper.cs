@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SP23.P03.Web.Features.Authorization;
 using SP23.P03.Web.Features.Destinations;
 using SP23.P03.Web.Features.TrainStations;
+using SP23.P03.Web.Migrations;
 
 namespace SP23.P03.Web.Data;
 
@@ -65,7 +66,7 @@ public static class SeedHelper
             {
                 City = "New Orleans",
                 State = "Louisiana",
-                TrainStationId = 1
+                TrainStationId = dataContext.Set<TrainStation>().First().Id
             });
         }
         await dataContext.SaveChangesAsync();
@@ -125,21 +126,15 @@ public static class SeedHelper
     {
         var trainStations = dataContext.Set<TrainStation>();
 
-        if (await trainStations.AnyAsync())
-        {
-            return;
-        }
+        if (!trainStations.Any(x => x.Name == "New Orleans")){
 
-        for (int i = 0; i < 3; i++)
-        {
             dataContext.Set<TrainStation>()
                 .Add(new TrainStation
                 {
-                    Name = "Hammond",
+                    Name = "New Orleans",
                     Address = "1234 Place st"
                 });
         }
-
         await dataContext.SaveChangesAsync();
     }
 }
