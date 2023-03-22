@@ -10,7 +10,7 @@ namespace SP23.P03.Web.Features.Trips
         public int EndingDestinationId { get; set; }
         public Destination StartingDestination { get; set; }
         public Destination EndingDestination { get; set; }
-        public bool RoundTrip { get; set; }
+       
 
     }
 }

@@ -113,7 +113,7 @@ namespace SP23.P03.Web.Controllers
             return string.IsNullOrWhiteSpace(dto.City) ||
                 string.IsNullOrWhiteSpace(dto.State) ||
                 int.IsNegative(dto.TrainStationId) ||
-                dto.TrainStationId== 0;
+                dto.TrainStationId==0;
                 
         }
 
