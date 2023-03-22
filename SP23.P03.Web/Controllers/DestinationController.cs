@@ -111,7 +111,9 @@ namespace SP23.P03.Web.Controllers
         private bool IsInvalid(DestinationDto dto)
         {
             return string.IsNullOrWhiteSpace(dto.City) ||
-                string.IsNullOrWhiteSpace(dto.State);
+                string.IsNullOrWhiteSpace(dto.State) ||
+                int.IsNegative(dto.TrainStationId) ||
+                dto.TrainStationId== 0;
                 
         }
 
