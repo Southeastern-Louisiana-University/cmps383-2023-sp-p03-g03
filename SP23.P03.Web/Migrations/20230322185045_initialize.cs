@@ -5,7 +5,7 @@
 namespace SP23.P03.Web.Migrations
 {
     /// <inheritdoc />
-    public partial class DestinationTrainStationId : Migration
+    public partial class initialize : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
