@@ -7,8 +7,8 @@ namespace SP23.P03.Web.Features.Destinations
         public int Id { get; set; }
         public string City { get; set; }
         public string State { get; set; }
-        public int? TrainStationId { get; set; }
-        public TrainStation? TrainStation { get; set; }
+        public int TrainStationId { get; set; }
+        public TrainStation TrainStation { get; set; }
 
 
     }
