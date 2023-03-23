@@ -17,8 +17,7 @@ namespace SP23.P03.Web.Features.Destinations
                 .HasMaxLength(70)
                 .IsRequired();
 
-                builder.Property(x => x.TrainStationId)
-                .IsRequired();
+               
 
         }
     }
