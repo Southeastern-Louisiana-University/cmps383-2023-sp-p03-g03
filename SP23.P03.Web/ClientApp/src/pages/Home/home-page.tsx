@@ -15,13 +15,13 @@ export function HomePage(): React.ReactElement {
         <a href="/#">EnTrack</a>
       </div>
       <ul>
-        <li><button className='buttonhomenav' onClick={() => {navigate(routes.home)}}>Home</button></li>
-        <li><button className='buttonhomenav' onClick={() => {navigate(routes.about)}}>About</button></li>
-        <li><button className='buttonhomenav' onClick={() => {navigate(routes.destinations)}}>Destinations</button></li>
-        <li><button className='buttonhomenav' onClick={() => {navigate(routes.tickets)}}>Tickets</button></li>
-        <li><button className='buttonhomenav' onClick={() => {navigate(routes.rewards)}}>Rewards</button></li>
-        <li><button className='buttonhomenav' onClick={() => {navigate(routes.support)}}>Support</button></li>
-        <li><button className='buttonhomenav' onClick={() => {navigate(routes.more)}}>More</button></li>
+          <li><button className='btn btn-5' onClick={() => {navigate(routes.home)}}>Home</button></li>
+          <li><button className='btn btn-5' onClick={() => {navigate(routes.about)}}>About</button></li>
+          <li><button className='btn btn-5' onClick={() => {navigate(routes.destinations)}}>Destinations</button></li>
+          <li><button className='btn btn-5' onClick={() => {navigate(routes.tickets)}}>Tickets</button></li>
+          <li><button className='btn btn-5' onClick={() => {navigate(routes.rewards)}}>Rewards</button></li>
+          <li><button className='btn btn-5' onClick={() => {navigate(routes.support)}}>Support</button></li>
+          <li><button className='btn btn-5' onClick={() => {navigate(routes.more)}}>More</button></li>
       </ul>
     </div>
   </nav>

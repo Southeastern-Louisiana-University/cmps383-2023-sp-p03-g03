@@ -1,0 +1,107 @@
+.destheader-box {
+    padding-top: 12em;
+    padding-bottom: 10em;
+    background-size: cover;
+    background-position: center;
+    background-image: url("../../assets/TravelByTrain.png");
+}
+
+
+.destinationslogan {
+    text-align: center;
+    font-weight: bolder;
+    font-style: italic;
+    color: #FFFCFC;
+    font-size: 3em;
+    text-shadow: .08em .08em #222222;
+}
+
+.destinationcontainer-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    bottom: 6em;
+}
+
+.destinationresizing {
+    max-width: 75em;
+}
+
+.btndestination-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btndestination-styling {
+    width: 8em;
+    height: 3em;
+    border: none;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    background-color:#6125C5;
+    color: #fff;
+}
+
+.btndestination1-styling {
+    width: 6em;
+    height: 2em;
+    border: none;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.0em;
+    background-color:#6125C5;
+    color: #fff;
+}
+
+.btndestination-styling:hover {
+    background-color: #7938e3;
+    color:  #fff;
+}
+
+.headerdesination-style {
+    color: var(--main-color) !important;
+}
+
+.infodesination-box {
+    max-width: 18em;
+    height: 27em;
+    text-align: start;
+    background-color: #333333 !important;
+    border-style: solid !important;
+    border-width: .1em !important;
+    border-color: var(--main-color) !important;
+    box-shadow: 7px 7px var(--main-color) !important;
+}
+
+.boxesdesination-center {
+    padding-left: 20em;
+    padding-bottom: 5em;
+}
+
+.boxdesination-header {
+    font-size: large;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+Input {
+    width: 30em;
+    height: 40px;
+    border-color: #222222 !important;
+    text-align: center;
+}
+
+Input::placeholder {
+    color: #222222 !important;
+}
+
+Input:focus {
+    border-color: var(--main-color) !important;
+}
+
+.destinationpadding{
+padding-top: 15px;
+}

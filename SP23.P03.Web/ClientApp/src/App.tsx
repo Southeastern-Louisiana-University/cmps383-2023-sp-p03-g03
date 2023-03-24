@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { Footer } from './components/Footer/Footer';
 import { AboutPage } from './pages/About/about';
 import { DestinationsPage } from './pages/Destinations/destinations-page';
 import { HomePage } from './pages/Home/home-page';
@@ -32,6 +33,7 @@ export function App() : React.ReactElement {
           <Route path={routes.support} element={<SupportPage/>}/>
           <Route path={routes.more} element={<MorePage/>}/>
         </Routes>
+        <Footer/>
     </div>
 
   );

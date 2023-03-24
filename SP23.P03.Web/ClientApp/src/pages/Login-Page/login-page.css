@@ -25,7 +25,7 @@ body{
 }
 .loginwrapper-title{
   height: 90px;
-  background: #1b1b1b;
+  background: #6125C5;
   border-radius: 5px 5px 0 0;
   color: #fff;
   font-size: 30px;
@@ -65,8 +65,8 @@ form .row input::placeholder{
   height: 100%;
   color: #fff;
   font-size: 18px;
-  background: #1b1b1b;
-  border: 1px solid #1b1b1b;
+  background:  #7938e3;
+  border: 1px solid  #7938e3;
   border-radius: 5px 0 0 5px;
   display: flex;
   align-items: center;
@@ -93,7 +93,7 @@ form .row input::placeholder{
   cursor: pointer;
 }
 form .button input:hover{
-  background: #1b1b1b;
+  background:  #7938e3;
 }
 .wrapper form .signup4login-link{
   text-align: center;
