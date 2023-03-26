@@ -66,7 +66,17 @@ public static class SeedHelper
             {
                 City = "New Orleans",
                 State = "Louisiana",
-                TrainStationId = dataContext.Set<TrainStation>().First().Id
+                TrainStationId = dataContext.Set<TrainStation>().First(x => x.Name == "New Orleans").Id
+            });
+        }
+
+        if (!destinations.Any(x => x.City == "Slidell"))
+        {
+            dataContext.Set<Destination>().Add(new Destination
+            {
+                City = "Slidell",
+                State = "Louisiana",
+                TrainStationId = dataContext.Set<TrainStation>().First(x => x.Name == "Slidell").Id
             });
         }
         await dataContext.SaveChangesAsync();
@@ -133,6 +143,17 @@ public static class SeedHelper
                 {
                     Name = "New Orleans",
                     Address = "1234 Place st"
+                });
+        }
+
+        if (!trainStations.Any(x => x.Name == "Slidell"))
+        {
+
+            dataContext.Set<TrainStation>()
+                .Add(new TrainStation
+                {
+                    Name = "Slidell",
+                    Address = "4764 Street St"
                 });
         }
         await dataContext.SaveChangesAsync();
