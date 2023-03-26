@@ -87,7 +87,7 @@
     padding-top: 10px;
 }
 
-Input {
+#destinations {
     width: 30em;
     height: 40px;
     border-color: #222222 !important;
