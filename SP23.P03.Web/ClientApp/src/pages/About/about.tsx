@@ -31,6 +31,3 @@ export function AboutPage(): React.ReactElement {
 
     );
 }
-
-
-//line 14:  <!--<img src="girl.png" className="pic">-->

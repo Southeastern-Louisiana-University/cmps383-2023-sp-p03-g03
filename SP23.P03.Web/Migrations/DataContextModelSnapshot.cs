@@ -223,6 +223,34 @@ namespace SP23.P03.Web.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
+            modelBuilder.Entity("SP23.P03.Web.Features.Destinations.Destination", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
+
+                    b.Property<int>("TrainStationId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TrainStationId");
+
+                    b.ToTable("Destination");
+                });
+
             modelBuilder.Entity("SP23.P03.Web.Features.TrainStations.Train", b =>
                 {
                     b.Property<int>("Id")
@@ -231,8 +259,8 @@ namespace SP23.P03.Web.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("Occupancy")
-                        .HasMaxLength(2147483647)
+                    b.Property<int>("MaxTicketCount")
+                        .HasMaxLength(500)
                         .HasColumnType("int");
 
                     b.Property<string>("Type")
@@ -325,6 +353,17 @@ namespace SP23.P03.Web.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SP23.P03.Web.Features.Destinations.Destination", b =>
+                {
+                    b.HasOne("SP23.P03.Web.Features.TrainStations.TrainStation", "TrainStation")
+                        .WithMany()
+                        .HasForeignKey("TrainStationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TrainStation");
                 });
 
             modelBuilder.Entity("SP23.P03.Web.Features.TrainStations.TrainStation", b =>

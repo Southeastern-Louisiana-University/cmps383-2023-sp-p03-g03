@@ -9,10 +9,11 @@
   height: 100vh;
   width: 100%;
   padding: 90px 0;
-  background: #1b1b1b;
+  background: #a5b4fc;
 }
 
 .pic{
+  white-space: nowrap;
   height: 500px;
   width:  475px;
 }
@@ -32,6 +33,7 @@
   font-weight: 600;
   margin-bottom: 10px;
   color: white;
+  text-shadow: 3px 0px 2px #000;
 }
 .text h5{
   font-size: 22px;
@@ -51,8 +53,8 @@
 }
 .hire{
   font-size: 18px;
-  background: #ffffff;
-  color: #1b1b1b;
+  background: #1b1b1b;
+  color: #fff;
   text-decoration: none;
   border: none;
   padding: 8px 25px;
@@ -74,7 +76,7 @@
     font-size: 15px;
     line-height: 22px;
     letter-spacing: 0.5px;
-    color: white;
+    color: #1b1b1b;
 }
 
 .spacing{
