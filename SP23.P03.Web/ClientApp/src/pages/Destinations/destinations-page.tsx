@@ -24,7 +24,7 @@ export function DestinationsPage(): React.ReactElement {
                         <Grid.Row>
                             <Grid.Column>
                                 <h1 className="boxdesination-header"> Starting From: </h1>
-                                <Input type="text" placeholder="Enter Station" />
+                                <Input type="text" name="destinations" id="destinations" placeholder="Enter Station" />
                             </Grid.Column>
 
                             <Divider vertical>
@@ -33,7 +33,7 @@ export function DestinationsPage(): React.ReactElement {
 
                             <Grid.Column>
                                 <h1 className="boxdesination-header"> Going To: </h1>
-                                <Input type="text" placeholder="Enter Station" />
+                                <Input type="text" name="destinations" id="destinations" placeholder="Enter Station" />
                             </Grid.Column>
                         </Grid.Row>
 

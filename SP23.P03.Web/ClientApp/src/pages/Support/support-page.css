@@ -87,11 +87,12 @@
   border: none;
   outline: none;
   font-size: 16px;
-  background: #F0F1F8;
+  background: #d3daff;
   border-radius: 6px;
   padding: 0 15px;
   resize: none;
 }
+
 .right-side .message-box{
   min-height: 110px;
 }
