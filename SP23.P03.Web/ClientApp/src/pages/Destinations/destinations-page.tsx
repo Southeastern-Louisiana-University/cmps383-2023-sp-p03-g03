@@ -2,18 +2,19 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 //import { useUser } from '../../components/AuthProvider';
 import { Divider, Grid, Icon, Input, Segment } from 'semantic-ui-react';
+import { useUser } from '../../components/AuthProvider';
 import { routes } from '../../Routes/config';
 import '../Destinations/destinations-page.css';
 
 export function DestinationsPage(): React.ReactElement {
     const navigate = useNavigate();
-   // const user = useUser();
+    const user = useUser();
 
     return (
         
         <><div className="destheader-box">
             <h2 className="destinationslogan">
-                Let's Get EnTrack
+                Let's Get {user?.userName ?? "You"} EnTrack
             </h2>
         </div><div className="destinationcontainer-center">
                 <div><br></br></div>
