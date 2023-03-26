@@ -1,0 +1,132 @@
+/* Local Style */
+
+/* Global */
+.local-style {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Cards */
+  .local-style-cards {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+  }
+  
+  .local-style-cards h2.local-style-header {
+    font-size: 40px;
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Services */
+  .local-style-services {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Content */
+  .local-style-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 4px;
+    transition: all .3s ease;
+  }
+  
+  .local-style-content .local-style-fab {
+    font-size: 70px;
+    margin: 16px 0;
+  }
+  
+  .local-style-content > {
+    flex: 1 1 100%;
+  }
+  
+  .local-style-content:hover {
+    color: white;
+  }
+  
+  .local-style-content:hover a {
+    border-color: white;
+    background: white;
+  }
+  
+  .local-style-content-1:hover {
+    border-color: #1DA1F2;
+    background: #1DA1F2;
+  }
+  
+  .local-style-content-1:hover a {
+    color: #1DA1F2;
+  }
+  
+  .local-style-content-2:hover {
+    border-color: #E1306C;
+    background: #E1306C;
+  }
+  
+  .local-style-content-2:hover a {
+    color: #E1306C;
+  }
+  
+  .local-style-content-3:hover {
+    border-color: #ff0000;
+    background: #ff0000;
+  }
+  
+  .local-style-content-3:hover a {
+    color: #ff0000;
+  }
+  
+  .local-style-content h2 {
+    font-size: 30px;
+    margin: 16px 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .local-style-content p {
+    font-size: 17px;
+  }
+  
+  .local-style-content a {
+    margin: 22px 0;
+    background: #6125C5;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid black;
+    padding: 15px 0;
+    border-radius: 25px;
+    transition: .3s ease;
+    width: 130px;
+  }
+  
+  .local-style-content a:hover {
+    border-radius: 4px;
+  }
+  
+  /* Media Query */
+  @media (max-width: 900px) {
+    .local-style-services {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .cardtitles{
+    text-align: center;
+  }
