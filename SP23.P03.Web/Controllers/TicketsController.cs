@@ -65,7 +65,8 @@ namespace SP23.P03.Web.Controllers
             {
                 Price = dto.Price,
                 TripId = dto.TripId,
-                Trip = dto.Trip,
+                
+                
             };
             tickets.Add(ticket);
             dataContext.SaveChanges();
@@ -88,7 +89,7 @@ namespace SP23.P03.Web.Controllers
             }
             ticket.Price = dto.Price;
             ticket.TripId = dto.TripId;
-            ticket.Trip = dto.Trip;
+            
             dataContext.SaveChanges();
             dto.Id = ticket.Id;
             return Ok(dto);
