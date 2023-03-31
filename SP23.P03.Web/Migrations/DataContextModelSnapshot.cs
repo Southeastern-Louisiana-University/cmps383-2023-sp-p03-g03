@@ -251,6 +251,58 @@ namespace SP23.P03.Web.Migrations
                     b.ToTable("Destination");
                 });
 
+            modelBuilder.Entity("SP23.P03.Web.Features.Tickets.Tickets", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<float>("Price")
+                        .HasMaxLength(70)
+                        .HasColumnType("real");
+
+                    b.Property<int>("RouteId")
+                        .HasMaxLength(70)
+                        .HasColumnType("int");
+
+                    b.Property<int>("TicketType")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RouteId");
+
+                    b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("SP23.P03.Web.Features.TrainRoute", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EndingDestinationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StartingDestinationId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTimeOffset>("TripDate")
+                        .HasColumnType("datetimeoffset");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EndingDestinationId");
+
+                    b.HasIndex("StartingDestinationId");
+
+                    b.ToTable("TrainRoute");
+                });
+
             modelBuilder.Entity("SP23.P03.Web.Features.TrainStations.Train", b =>
                 {
                     b.Property<int>("Id")
@@ -364,6 +416,36 @@ namespace SP23.P03.Web.Migrations
                         .IsRequired();
 
                     b.Navigation("TrainStation");
+                });
+
+            modelBuilder.Entity("SP23.P03.Web.Features.Tickets.Tickets", b =>
+                {
+                    b.HasOne("SP23.P03.Web.Features.TrainRoute", "Route")
+                        .WithMany()
+                        .HasForeignKey("RouteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Route");
+                });
+
+            modelBuilder.Entity("SP23.P03.Web.Features.TrainRoute", b =>
+                {
+                    b.HasOne("SP23.P03.Web.Features.Destinations.Destination", "EndingDestination")
+                        .WithMany()
+                        .HasForeignKey("EndingDestinationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SP23.P03.Web.Features.Destinations.Destination", "StartingDestination")
+                        .WithMany()
+                        .HasForeignKey("StartingDestinationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("EndingDestination");
+
+                    b.Navigation("StartingDestination");
                 });
 
             modelBuilder.Entity("SP23.P03.Web.Features.TrainStations.TrainStation", b =>
