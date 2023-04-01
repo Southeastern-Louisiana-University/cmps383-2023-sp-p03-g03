@@ -64,7 +64,7 @@ namespace SP23.P03.Web.Controllers
             var ticket = new Tickets
             {
                 Price = dto.Price,
-                TripId = dto.TripId,
+                RouteId = dto.RouteId,
                 
                 
             };
@@ -88,7 +88,7 @@ namespace SP23.P03.Web.Controllers
                 return NotFound();
             }
             ticket.Price = dto.Price;
-            ticket.TripId = dto.TripId;
+            ticket.RouteId = dto.RouteId;
             
             dataContext.SaveChanges();
             dto.Id = ticket.Id;

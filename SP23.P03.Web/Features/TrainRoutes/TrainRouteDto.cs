@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Diagnostics;
-using SP23.P03.Web.Features.Destinations;
+﻿using SP23.P03.Web.Features.Destinations;
 
-namespace SP23.P03.Web.Features.Trips
+namespace SP23.P03.Web.Features.TrainRoutes
 {
-    public class Trip
+    public class TrainRouteDto
     {
         public int Id { get; set; }
         public DateTimeOffset TripDate { get; set; }
@@ -11,7 +10,5 @@ namespace SP23.P03.Web.Features.Trips
         public int EndingDestinationId { get; set; }
         public Destination StartingDestination { get; set; }
         public Destination EndingDestination { get; set; }
-        
-
     }
 }

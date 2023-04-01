@@ -1,8 +1,8 @@
 ﻿using SP23.P03.Web.Features.Destinations;
 
-namespace SP23.P03.Web.Features.Trips
+namespace SP23.P03.Web.Features
 {
-    public class TripDto
+    public class TrainRoute
     {
         public int Id { get; set; }
         public DateTimeOffset TripDate { get; set; }
@@ -10,7 +10,5 @@ namespace SP23.P03.Web.Features.Trips
         public int EndingDestinationId { get; set; }
         public Destination StartingDestination { get; set; }
         public Destination EndingDestination { get; set; }
-       
-
     }
 }

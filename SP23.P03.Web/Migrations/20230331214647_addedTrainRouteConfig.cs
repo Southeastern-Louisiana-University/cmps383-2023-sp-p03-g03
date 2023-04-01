@@ -5,7 +5,7 @@
 namespace SP23.P03.Web.Migrations
 {
     /// <inheritdoc />
-    public partial class Trip : Migration
+    public partial class addedTrainRouteConfig : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
