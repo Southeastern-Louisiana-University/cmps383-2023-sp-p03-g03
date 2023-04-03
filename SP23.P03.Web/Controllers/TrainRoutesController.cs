@@ -62,6 +62,41 @@ namespace SP23.P03.Web.Controllers
             return CreatedAtAction(nameof(GetTrainRouteById), new {id = dto.Id}, dto);
         }
 
+        [HttpPut]
+        [Route("{id}")]
+        public ActionResult<TrainRouteDto> UpdateTrainRoute(int id, TrainRouteDto dto)
+        {
+            if (IsInvalid(dto))
+            {
+                return BadRequest();
+            }
+            var trainRoute = trainRoutes.FirstOrDefault(x => x.Id == id);
+            if (trainRoute == null) {
+                return NotFound();
+            }
+            trainRoute.TripDate = dto.TripDate;
+            trainRoute.TripType = (TripTypes)dto.TripType;
+            trainRoute.StartingDestinationId = dto.StartingDestinationId;
+            trainRoute.EndingDestinationId = dto.EndingDestinationId;
+            dataContext.SaveChanges();
+            dto.Id = trainRoute.Id;
+            return Ok(dto);
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public ActionResult DeleteTrainRoute(int id)
+        {
+            var trainRoute = trainRoutes.FirstOrDefault(x =>x.Id == id);
+            if (trainRoute == null)
+            {
+                return NotFound();
+            }
+            trainRoutes.Remove(trainRoute);
+            dataContext.SaveChanges();
+            return Ok();
+        }
+
         private IQueryable<TrainRouteDto> GetTrainRouteDtos(IQueryable<TrainRoute> trainRoutes)
         {
             return trainRoutes
