@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SP23.P03.Web.Features;
 using SP23.P03.Web.Features.Authorization;
 using SP23.P03.Web.Features.Destinations;
 using SP23.P03.Web.Features.TrainStations;
@@ -21,6 +22,7 @@ public static class SeedHelper
         await AddTrainStation(dataContext);
         await AddTrain(dataContext);
         await AddDestination(dataContext);
+        await AddTrainRoute(dataContext);
     }
 
     private static async Task AddTrain(DataContext dataContext)
@@ -53,6 +55,22 @@ public static class SeedHelper
                        Type = "Luxury Passanger",
                        MaxTicketCount = 200,
                    });
+        }
+        await dataContext.SaveChangesAsync();
+    }
+    private static async Task AddTrainRoute(DataContext dataContext)
+    {
+        var trainRoutes = dataContext.Set<TrainRoute>();
+        if (!trainRoutes.Any(x => x.StartingDestinationId == 1)
+            && trainRoutes.Any(x => x.EndingDestinationId == 2))
+        {
+            dataContext.Set<TrainRoute>().Add(new TrainRoute
+            {
+                TripDate = DateTime.Now,
+                TripType = TripTypes.OneWay,
+                StartingDestinationId = dataContext.Set<Destination>().First(x => x.City == "New Orleans").Id,
+                EndingDestinationId = dataContext.Set<Destination>().First(x => x.City == "Slidell").Id
+            });
         }
         await dataContext.SaveChangesAsync();
     }
