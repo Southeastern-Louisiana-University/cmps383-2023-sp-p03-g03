@@ -12,8 +12,11 @@ namespace SP23.P03.Web.Features.Tickets
                 .HasMaxLength(70)
                 .IsRequired();
 
-            builder.Property(x => x.TripId)
+            builder.Property(x => x.RouteId)
                 .HasMaxLength(70)
+                .IsRequired();
+
+            builder.Property(x => x.TicketType)
                 .IsRequired();
         }
     }
