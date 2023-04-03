@@ -61,8 +61,8 @@ public static class SeedHelper
     private static async Task AddTrainRoute(DataContext dataContext)
     {
         var trainRoutes = dataContext.Set<TrainRoute>();
-        if (!trainRoutes.Any(x => x.StartingDestinationId == 1)
-            && trainRoutes.Any(x => x.EndingDestinationId == 2))
+        if (!trainRoutes.Any(x => x.StartingDestinationId == dataContext.Set<Destination>().First(x => x.City == "New Orleans").Id)
+            && !trainRoutes.Any(x => x.EndingDestinationId == dataContext.Set<Destination>().First(x => x.City == "Slidell").Id))
         {
             dataContext.Set<TrainRoute>().Add(new TrainRoute
             {
