@@ -26,6 +26,20 @@ namespace SP23.P03.Web.Controllers
             return GetTrainRouteDtos(trainRoutes);
         }
 
+        [HttpGet]
+        [Route("{id}")]
+        public ActionResult<TrainRouteDto> GetTrainRouteById(int id)
+        {
+            var result = GetTrainRouteDtos(trainRoutes
+                .Where(x => x.Id == id))
+                .FirstOrDefault();
+            if (result == null)
+            {
+                return NotFound();
+            }
+            return Ok(result);
+        }
+
         private IQueryable<TrainRouteDto> GetTrainRouteDtos(IQueryable<TrainRoute> trainRoutes)
         {
             return trainRoutes
