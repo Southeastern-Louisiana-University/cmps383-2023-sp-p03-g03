@@ -29,9 +29,15 @@ namespace SP23.P03.Web.Controllers
             return GetTicketsDtos(tickets);
         }
 
-        private IQueryable<TicketsDto> GetTicketsDtos(DbSet<Tickets> tickets)
+        private IQueryable<TicketsDto> GetTicketsDtos(IQueryable<Tickets> tickets)
         {
-            throw new NotImplementedException();
+            return tickets.Select(x => new TicketsDto
+            {
+                Id = x.Id,
+                Price = x.Price,
+                RouteId = x.RouteId,
+
+            }); 
         }
 
         [HttpGet]
@@ -48,10 +54,7 @@ namespace SP23.P03.Web.Controllers
             return Ok();
         }
 
-        private object GetTicketsDtos(IQueryable<Tickets> tickets)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         [HttpPost]
 
@@ -65,7 +68,7 @@ namespace SP23.P03.Web.Controllers
             {
                 Price = dto.Price,
                 RouteId = dto.RouteId,
-                
+               
                 
             };
             tickets.Add(ticket);
