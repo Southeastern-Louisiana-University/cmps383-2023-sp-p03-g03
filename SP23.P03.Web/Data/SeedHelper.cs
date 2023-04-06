@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Any;
@@ -7,6 +8,8 @@ using SP23.P03.Web.Features.Destinations;
 using SP23.P03.Web.Features.Tickets;
 using SP23.P03.Web.Features.TrainStations;
 using SP23.P03.Web.Migrations;
+using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace SP23.P03.Web.Data;
 
@@ -179,5 +182,60 @@ public static class SeedHelper
         await dataContext.SaveChangesAsync();
     }
 
-      
+    private static async Task AddTickets(DataContext dataContext)
+    //If there arent any tickets set them up based on a Route 
+    // In theory a person could buy a ticket based on the level of seating. I think......
+    //Dont fully understand work but it works.
+    {
+        var tickets = dataContext.Set<Tickets>();
+        if (!tickets.Any(x => x.Price ==  300))
+        {
+            tickets
+                .Add(new Tickets
+                {
+                    Price = 300,
+
+                });
+            await dataContext.SaveChangesAsync();
+
+        }
+          if  (!tickets.Any(x => x.TicketType == TicketTypes.Coach))
+           {
+
+            tickets
+            .Add(new Tickets
+            {
+                TicketType = TicketTypes.Coach
+            });
+            await dataContext.SaveChangesAsync();
+
+           }
+            if (!tickets.Any(x => x.TicketType == TicketTypes.FirstClass))
+            {
+            tickets
+            .Add(new Tickets
+            {
+                TicketType = TicketTypes.FirstClass
+
+            });
+            await dataContext.SaveChangesAsync();
+
+            }
+
+            if (!tickets.Any(x => x.TicketType == TicketTypes.Luxury))
+            {
+
+            tickets
+            .Add(new Tickets
+            {
+                TicketType = TicketTypes.Luxury
+            });
+            await dataContext.SaveChangesAsync();
+            }
+
+
+        await dataContext.SaveChangesAsync();
+
+    }
+    
 }
