@@ -21,7 +21,6 @@ export function HomePage(): React.ReactElement {
           <li><button className='btn btn-5' onClick={() => {navigate(routes.tickets)}}>Tickets</button></li>
           <li><button className='btn btn-5' onClick={() => {navigate(routes.rewards)}}>Rewards</button></li>
           <li><button className='btn btn-5' onClick={() => {navigate(routes.support)}}>Support</button></li>
-          <li><button className='btn btn-5' onClick={() => {navigate(routes.more)}}>More</button></li>
       </ul>
     </div>
   </nav>

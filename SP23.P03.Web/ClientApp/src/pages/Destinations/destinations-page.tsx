@@ -31,13 +31,13 @@ export function DestinationsPage(): React.ReactElement {
     destination.city.toLowerCase().includes(endDestination.toLowerCase())
   );
 
-//   function addDestinationToDisplay(destination: Destination){
-//     if (!displayedDestinations.has(destination.city)){
-//         setDisplayedDestinations(new Set(displayedDestinations).add(destination.city));
-//         return true;
-//     }
-//     return false;
-//   }
+  //   function addDestinationToDisplay(destination: Destination){
+  //     if (!displayedDestinations.has(destination.city)){
+  //         setDisplayedDestinations(new Set(displayedDestinations).add(destination.city));
+  //         return true;
+  //     }
+  //     return false;
+  //   }
 
   return (
     <>
@@ -54,31 +54,57 @@ export function DestinationsPage(): React.ReactElement {
           <Grid columns={2} stackable container textAlign="center">
             <Grid.Row>
               <Grid.Column>
-                <h1 className="boxdesination-header"> Starting From: </h1>
-                <Input
-                  type="text"
-                  name="destinations"
-                  id="startDestination"
-                  value={startDestination}
-                  onChange={(e) => setStartDestination(e.target.value)}
-                  placeholder="Enter Station"
-                />
-              </Grid.Column>
-
-              <Divider vertical>
-                <Icon name="arrow right" />
-              </Divider>
-
-              <Grid.Column>
-                <h1 className="boxdesination-header"> Going To: </h1>
-                <Input
-                  type="text"
-                  name="destinations"
-                  id="endDestination"
-                  value={endDestination}
-                  onChange={(e) => setEndDestination(e.target.value)}
-                  placeholder="Enter Station"
-                />
+              <div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "5px",
+  }}
+>
+  <div style={{ display: "flex", alignItems: "center" }}>
+    <Icon name="map marker alternate" />
+    <Input
+      type="text"
+      name="destinations"
+      id="startDestination"
+      value={startDestination}
+      onChange={(e) => setStartDestination(e.target.value)}
+      placeholder="Enter Station"
+      className="destinations"
+    />
+  </div>
+  <Divider vertical>
+    <Icon name="arrow right" />
+  </Divider>
+  <div style={{ display: "flex", alignItems: "center", paddingRight: "25px"}}>
+    <Icon name="map marker alternate" />
+    <Input
+      type="text"
+      name="destinations"
+      id="endDestination"
+      value={endDestination}
+      onChange={(e) => setEndDestination(e.target.value)}
+      placeholder="Enter Station"
+      className="myInput"
+    />
+  </div>
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      gap: "2px",
+    }}
+  >
+    <Icon name="calendar alternate outline" />
+    <Input type="date" id="start-date" name="start-date" />
+    <Icon name="arrow right" />
+    <Input type="date" id="end-date" name="end-date" />
+    <Icon name="calendar alternate outline" />
+  </div>
+</div>
               </Grid.Column>
             </Grid.Row>
 
@@ -95,13 +121,16 @@ export function DestinationsPage(): React.ReactElement {
               </div>
               <ul>
                 {filteredStartDestinations.map((destination) => (
-                  <li key={destination.id}>{destination.city} {destination.state}</li>
+                  <li key={destination.id}>
+                    {destination.city} {destination.state}
+                  </li>
                 ))}
               </ul>
-              <div> To: </div>
               <ul>
                 {filteredEndDestinations.map((destination) => (
-                  <li key={destination.id}>{destination.city} {destination.state}</li>
+                  <li key={destination.id}>
+                    {destination.city} {destination.state}
+                  </li>
                 ))}
               </ul>
               <div className="destinationpadding">
