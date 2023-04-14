@@ -25,3 +25,4 @@
 4. Run `npm i` and `npm start`
 5. A Swagger window should have opened after step 2. Remove everything after the `localhost:7031`
 6. You should see the Entrack App at this point
+
