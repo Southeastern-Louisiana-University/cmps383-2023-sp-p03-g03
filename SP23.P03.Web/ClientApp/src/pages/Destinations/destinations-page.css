@@ -43,6 +43,7 @@
     font-size: 1.2em;
     background-color:#6125C5;
     color: #fff;
+    margin-top: 25px;
 }
 
 .btndestination1-styling {
@@ -94,9 +95,12 @@
     text-align: center;
 }
 
-Input::placeholder {
+
+
+.destinations-page .destinations::placeholder {
     color: #222222 !important;
-}
+    text-align: center;
+    }
 
 Input:focus {
     border-color: var(--main-color) !important;
