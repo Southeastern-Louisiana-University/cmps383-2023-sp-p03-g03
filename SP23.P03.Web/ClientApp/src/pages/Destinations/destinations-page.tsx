@@ -40,115 +40,115 @@ export function DestinationsPage(): React.ReactElement {
   //   }
 
   return (
-    <>
-      <div className="destheader-box">
-        <h2 className="destinationslogan">
-          Let's Get {user?.userName ?? "You"} EnTrack
-        </h2>
-      </div>
-      <div className="destinationcontainer-center">
-        <div>
-          <br></br>
+    <><head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head><>
+        <div className="destheader-box">
+          <h2 className="destinationslogan">
+            Let's Get {user?.userName ?? "You"} EnTrack
+          </h2>
         </div>
-        <Segment padded raised className="destinationresizing">
-          <Grid columns={2} stackable container textAlign="center">
-            <Grid.Row>
-              <Grid.Column>
-              <div
-  style={{
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "5px",
-  }}
->
-  <div style={{ display: "flex", alignItems: "center" }}>
-    <Icon name="map marker alternate" />
-    <Input
-      type="text"
-      name="destinations"
-      id="startDestination"
-      value={startDestination}
-      onChange={(e) => setStartDestination(e.target.value)}
-      placeholder="Enter Station"
-      className="destinations"
-    />
-  </div>
-  <Divider vertical>
-    <Icon name="arrow right" />
-  </Divider>
-  <div style={{ display: "flex", alignItems: "center", paddingRight: "25px"}}>
-    <Icon name="map marker alternate" />
-    <Input
-      type="text"
-      name="destinations"
-      id="endDestination"
-      value={endDestination}
-      onChange={(e) => setEndDestination(e.target.value)}
-      placeholder="Enter Station"
-      className="myInput"
-    />
-  </div>
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      gap: "2px",
-    }}
-  >
-    <Icon name="calendar alternate outline" />
-    <Input type="date" id="start-date" name="start-date" />
-    <Icon name="arrow right" />
-    <Input type="date" id="end-date" name="end-date" />
-    <Icon name="calendar alternate outline" />
-  </div>
-</div>
-              </Grid.Column>
-            </Grid.Row>
-
-            <Grid.Row>
-              <div className="destinationpadding">
-                <div className="btndestination-center">
-                  <button
-                    className="btndestination-styling"
-                    onClick={fetchDestinations}
-                  >
-                    Book Now!
-                  </button>
-                </div>
-              </div>
-              <ul>
-                {filteredStartDestinations.map((destination) => (
-                  <li key={destination.id}>
-                    {destination.city} {destination.state}
-                  </li>
-                ))}
-              </ul>
-              <ul>
-                {filteredEndDestinations.map((destination) => (
-                  <li key={destination.id}>
-                    {destination.city} {destination.state}
-                  </li>
-                ))}
-              </ul>
-              <div className="destinationpadding">
-                <div className="btndestination-center">
-                  <button
-                    className="btndestination1-styling"
-                    onClick={() => {
-                      navigate(routes.home);
+        <div className="destinationcontainer-center">
+          <div>
+            <br></br>
+          </div>
+          <Segment padded raised className="destinationresizing">
+            <Grid columns={2} stackable container textAlign="center">
+              <Grid.Row>
+                <Grid.Column>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      gap: "5px",
                     }}
                   >
-                    Home
-                  </button>
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      <Icon name="map marker alternate" />
+                      <Input
+                        type="text"
+                        name="destinations"
+                        id="startDestination"
+                        value={startDestination}
+                        onChange={(e) => setStartDestination(e.target.value)}
+                        placeholder="Enter Station"
+                        className="destinations" />
+                    </div>
+                    <Divider vertical>
+                      <Icon name="arrow right" />
+                    </Divider>
+                    <div style={{ display: "flex", alignItems: "center", paddingRight: "25px" }}>
+                      <Icon name="map marker alternate" />
+                      <Input
+                        type="text"
+                        name="destinations"
+                        id="endDestination"
+                        value={endDestination}
+                        onChange={(e) => setEndDestination(e.target.value)}
+                        placeholder="Enter Station"
+                        className="myInput" />
+                    </div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        gap: "2px",
+                      }}
+                    >
+                      <Icon name="calendar alternate outline" />
+                      <Input type="date" id="start-date" name="start-date" />
+                      <Icon name="arrow right" />
+                      <Input type="date" id="end-date" name="end-date" />
+                      <Icon name="calendar alternate outline" />
+                    </div>
+                  </div>
+                </Grid.Column>
+              </Grid.Row>
+
+              <Grid.Row>
+                <div className="destinationpadding">
+                  <div className="btndestination-center">
+                    <button
+                      className="btndestination-styling"
+                      onClick={fetchDestinations}
+                    >
+                      Book Now!
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </Grid.Row>
-          </Grid>
-        </Segment>
-      </div>
-    </>
+                <ul>
+                  {filteredStartDestinations.map((destination) => (
+                    <li key={destination.id}>
+                      {destination.city} {destination.state}
+                    </li>
+                  ))}
+                </ul>
+                <ul>
+                  {filteredEndDestinations.map((destination) => (
+                    <li key={destination.id}>
+                      {destination.city} {destination.state}
+                    </li>
+                  ))}
+                </ul>
+                <div className="destinationpadding">
+                  <div className="btndestination-center">
+                    <button
+                      className="btndestination1-styling"
+                      onClick={() => {
+                        navigate(routes.home);
+                      } }
+                    >
+                      Home
+                    </button>
+                  </div>
+                </div>
+              </Grid.Row>
+            </Grid>
+          </Segment>
+        </div>
+      </></>
   );
 }
