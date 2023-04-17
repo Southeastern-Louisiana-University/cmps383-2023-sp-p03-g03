@@ -1,23 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
+
 import {NavigationContainer} from "@react-navigation/native";
-import React, {userState, useEffect} from 'react' ;
 import { SafeAreaView, 
   StyleSheet, 
   Text, 
-  View, 
-   } from 'react-native';
+   TouchableOpacity} from 'react-native';
 
    const HomePage = () => {
     const handleStartTrip = () => {
-      console.log('Starting trip today');
+      console.log('Plan a Trip Today');
       // Navigate to the trip creation or selection screen
     };
   
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.title}>Welcome to Trip App</Text>
+        <Text style={styles.title}>Welcome to Emtrack</Text>
         <TouchableOpacity style={styles.button} onPress={handleStartTrip}>
-          <Text style={styles.buttonText}>Start a Trip Today</Text>
+          <Text style={styles.buttonText}>Plan a Trip Today</Text>
         </TouchableOpacity>
       </SafeAreaView>
     );
