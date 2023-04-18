@@ -14,16 +14,24 @@ export function DestinationList({
   searchTerm,
   children,
 }: DestinationListProps) {
-  const [locatedDestinations, setLocatedDestinations] = useState<Destination[]>([]); 
+  const [locatedDestinations, setLocatedDestinations] = useState<Destination[]>([]);
 
   useEffect(() => {
+  if (searchTerm){
     const timer = setTimeout(() => {
       axios
         .get(`/api/destinations?searchTerm=${searchTerm}`)
-        .then((x) => setLocatedDestinations(x.data));
+        .then((x) => {const filteredDestinations = x.data.filter((destination: { city: string}) => destination.city.toLowerCase().startsWith(searchTerm.toLowerCase()));
+          setLocatedDestinations(filteredDestinations);
+        });
+        
     }, 300);
 
     return () => clearTimeout(timer);
+  } else {
+    setLocatedDestinations([]);
+  }
+  
   }, [searchTerm]);
 
   return (
