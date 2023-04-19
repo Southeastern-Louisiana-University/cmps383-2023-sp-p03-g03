@@ -38,14 +38,14 @@ import { SafeAreaView,
           type="material"
           color="#fff"
           onPress={toggleDrawer}/>}
-        leftComponent={{ text: 'Emtrack', style: { color: '#fff', fontSize: 18 } }}
+        leftComponent={{ text: 'Entrack', style: { color: '#fff', fontSize: 18 } }}
         backgroundColor="#000"
       />
       
         
         <ImageBackground source={{ uri: 'https://unsplash.com/photos/oEIFOoC3gi0/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8dHJhaW5zJTIwaW4lMjBtb3VudGFpbnN8ZW58MHx8fHwxNjgxODc4NTM5&force=true&w=2400' }} style={styles.imageBackground} resizeMode="cover">
           <Image source={{ uri: 'https://your-logo-url.com/path/to/logo.png' }} style={styles.logo} /> 
-          <Text style={styles.title}>Welcome to Emtrack</Text>
+          <Text style={styles.title}>Welcome to Entrack</Text>
           <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button} onPress={handleSignIn}>
             <Text style={styles.buttonText}>Sign In</Text>
@@ -62,7 +62,7 @@ import { SafeAreaView,
               justifyContent: 'center',
               alignItems: 'center',
                }}
-              ><Text style={{ color: '#fff', fontSize: 18 }}>{'\u00A9'} {(new Date()).getFullYear()} Emtrack. All rights reserved.</Text> 
+              ><Text style={{ color: '#fff', fontSize: 18 }}>{'\u00A9'} {(new Date()).getFullYear()} Entrack. All rights reserved.</Text> 
               </View>
         
           </SafeAreaView>
