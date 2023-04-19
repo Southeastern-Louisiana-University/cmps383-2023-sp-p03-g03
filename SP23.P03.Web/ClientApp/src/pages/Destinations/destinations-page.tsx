@@ -5,6 +5,7 @@ import { Divider, Grid, Icon, Input, Segment } from "semantic-ui-react";
 import { useUser } from "../../components/AuthProvider";
 import { routes } from "../../Routes/config";
 import "../Destinations/destinations-page.css";
+import { DestinationPicker } from "../../components/DestinationPicker";
 
 export function DestinationsPage(): React.ReactElement {
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ export function DestinationsPage(): React.ReactElement {
   //     }
   //     return false;
   //   }
+  
 
   return (
     <><head>
@@ -47,6 +49,8 @@ export function DestinationsPage(): React.ReactElement {
           <h2 className="destinationslogan">
             Let's Get {user?.userName ?? "You"} EnTrack
           </h2>
+          <div>
+          </div>
         </div>
         <div className="destinationcontainer-center">
           <div>
@@ -107,6 +111,10 @@ export function DestinationsPage(): React.ReactElement {
                   </div>
                 </Grid.Column>
               </Grid.Row>
+              <div>
+                <DestinationPicker title={"Start"}/>
+                <DestinationPicker title={"End"}/>
+                </div>
 
               <Grid.Row>
                 <div className="destinationpadding">
@@ -119,6 +127,8 @@ export function DestinationsPage(): React.ReactElement {
                     </button>
                   </div>
                 </div>
+                
+                
                 <ul>
                   {filteredStartDestinations.map((destination) => (
                     <li key={destination.id}>
