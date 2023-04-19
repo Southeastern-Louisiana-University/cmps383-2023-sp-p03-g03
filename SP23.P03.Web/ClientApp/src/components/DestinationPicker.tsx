@@ -17,12 +17,13 @@ export function DestinationPicker({ title }: DestinationPickerProps) {
           value={searchTerm}
           onChange={setSearchTerm}
         />
+      
         <DestinationList
           searchTerm={searchTerm}
           selectedDestination={selectedDestination as Destination}
           setSelectedDestination={setSelectedDestination}
         >
-          {selectedDestination ? "Where do you want to go?": null}
+          {/* {selectedDestination ? "Where do you want to go?": null} */}
           </DestinationList>
         
       </div>
