@@ -5,8 +5,8 @@ import {NavigationContainer} from "@react-navigation/native";
 import { SafeAreaView, 
   StyleSheet, 
   Text, 
-   TouchableOpacity, 
-   ImageBackground,
+  TouchableOpacity, 
+  ImageBackground,
   View, 
   Image,} from 'react-native';
 
@@ -62,7 +62,7 @@ import { SafeAreaView,
               justifyContent: 'center',
               alignItems: 'center',
                }}
-              ><Text style={{ color: '#fff', fontSize: 18 }}>{'\u00A9'} {(new Date()).getFullYear()} Entrack. All rights reserved.</Text> 
+              ><Text style={{ color: '#fff', fontSize: 12 }}>{'\u00A9'} {(new Date()).getFullYear()} Entrack. All rights reserved.</Text> 
               </View>
         
           </SafeAreaView>
