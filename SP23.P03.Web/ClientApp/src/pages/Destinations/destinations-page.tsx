@@ -75,8 +75,8 @@ export function DestinationsPage(): React.ReactElement {
                 </Grid.Column>
               </Grid.Row>
               <div>
-                <DestinationPicker title={"Start"} />
-                <DestinationPicker title={"End"} />
+                <DestinationPicker title={"Start Location"} />
+                <DestinationPicker title={"End Location"} />
               </div>
 
               <Grid.Row>

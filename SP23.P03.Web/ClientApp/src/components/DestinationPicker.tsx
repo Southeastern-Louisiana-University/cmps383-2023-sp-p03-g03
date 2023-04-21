@@ -5,6 +5,7 @@ import { DestinationList } from "./DestinationList";
 interface DestinationPickerProps {
     title: string;
 }
+
 export function DestinationPicker({ title }: DestinationPickerProps) {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedDestination, setSelectedDestination] = useState<Destination | null>();
@@ -13,7 +14,7 @@ export function DestinationPicker({ title }: DestinationPickerProps) {
       <div>
         <h2>{title}</h2>
         <SearchBox
-          label="Search Term: "
+          label=""
           value={searchTerm}
           onChange={setSearchTerm}
         />        
