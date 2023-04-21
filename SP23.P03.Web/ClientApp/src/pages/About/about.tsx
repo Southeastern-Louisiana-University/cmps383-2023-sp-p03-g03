@@ -3,7 +3,6 @@ import { useNavigate} from 'react-router-dom';
 import { routes } from '../../Routes/config';
 import '../About/about.css';
 
-
 export function AboutPage(): React.ReactElement {
     const navigate = useNavigate();
     return (
