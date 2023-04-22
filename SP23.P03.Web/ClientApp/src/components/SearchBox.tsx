@@ -9,7 +9,7 @@ export function SearchBox({ label, value, onChange }: SearchBoxProps) {
     return (
       <div>
         <label>{label}</label>
-        <input value={value} onChange={(e) => onChange(e.target.value)} />
+        <input style={{ textAlign: 'center' }} placeholder="Enter Location" value={value} onChange={(e) => onChange(e.target.value)} />
       </div>
       );
     }
