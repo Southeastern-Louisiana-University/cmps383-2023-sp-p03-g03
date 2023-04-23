@@ -76,9 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 10,
     padding: 10,
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 5,
+    backgroundColor: '#0000FF',
   },
   routeName: {
     fontSize: 20,
