@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Divider, Grid, Icon, Segment } from "semantic-ui-react";
 import { useUser } from "../../components/AuthProvider";
@@ -11,20 +11,6 @@ export function DestinationsPage(): React.ReactElement {
   const navigate = useNavigate();
   const user = useUser();
 
-  const [destinations, setDestinations] = useState<Destination[]>([]);
-  const [trainRoutes, setTrainRoutes] = useState<TrainRoute[]>([]);
-
-  //const [displayedDestinations, setDisplayedDestinations] = useState<Set<string>>(new Set());
-
-  async function fetchDestinations() {
-    try {
-      const response = await axios.get("api/destinations");
-      const data = response.data;
-      setDestinations(data);
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
   async function fetchRoutes() {
     try {
@@ -110,3 +96,7 @@ export function DestinationsPage(): React.ReactElement {
     </>
   );
 }
+function setTrainRoutes(data: any) {
+  throw new Error("Function not implemented.");
+}
+
