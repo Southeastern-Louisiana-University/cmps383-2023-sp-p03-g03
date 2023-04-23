@@ -46,7 +46,7 @@ export function DestinationList({
             key={x.id}
             onClick={() => setSelectedDestination(x)}
           >
-            {x.city}
+            {x.city}, {x.state}
           </div>
         ))}
       </div>

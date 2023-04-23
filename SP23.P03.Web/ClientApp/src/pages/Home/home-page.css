@@ -56,7 +56,8 @@ nav .menu{
   background: #fff;
   color: black;
 }
-.img{
+
+.train{
   background: url('../../assets/traintrack.png')no-repeat;
   width: 100%;
   height: 100vh;
@@ -64,7 +65,8 @@ nav .menu{
   background-position: center;
   position: relative;
 }
-.img::before{
+
+.train::before{
   content: '';
   position: absolute;
   height: 100%;
@@ -146,9 +148,61 @@ nav .menu{
   outline-offset: 0px;
   text-shadow: none;
   transition: all 2250ms cubic-bezier(0.19, 1, 0.22, 1);
+  margin-right: 150px;
 } 
 
 .btn-5:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+}
+
+.btn-4 {
+  text-decoration: none;
+  color: #1b1b1b;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-color: #1b1b1b;
+  border-radius: 5px;
+  border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 2250ms cubic-bezier(0.19, 1, 0.22, 1);
+} 
+
+.btn-4:hover {
+  border: 1px solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+  outline-color: rgba(255, 255, 255, 0);
+  outline-offset: 15px;
+  text-shadow: 1px 1px 2px #427388; 
+}
+
+
+.btn-6 {
+  text-decoration: none;
+  color: #1b1b1b;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-color: #1b1b1b;
+  border-radius: 5px;
+  border: 0 solid;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+  outline: 1px solid;
+  outline-color: rgba(255, 255, 255, .5);
+  outline-offset: 0px;
+  text-shadow: none;
+  transition: all 2250ms cubic-bezier(0.19, 1, 0.22, 1);
+} 
+
+.btn-6:hover {
   border: 1px solid;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
   outline-color: rgba(255, 255, 255, 0);

@@ -13,7 +13,7 @@ export function DestinationPicker({ title }: DestinationPickerProps) {
       <div>
         <h2>{title}</h2>
         <SearchBox
-          label="search term"
+          label=""
           value={searchTerm}
           onChange={setSearchTerm}
         />
