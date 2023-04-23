@@ -5,6 +5,7 @@ import { SafeAreaView, StyleSheet, Text, TouchableOpacity, ImageBackground, View
 const App = () => {
   const [selectedDestination, setSelectedDestination] = useState(null);
   const [showRouteOptions, setShowRouteOptions] = useState(false);
+  const [showPurchaseConfirmation, setShowPurchaseConfirmation] = useState(false);
 
   const handleDestinationSelection = (destination) => {
     setSelectedDestination(destination);
@@ -15,16 +16,32 @@ const App = () => {
     setShowRouteOptions(false);
   };
 
+  const handleOptionSelection = () => {
+    setShowRouteOptions(false);
+    setShowPurchaseConfirmation(true);
+  };
+
+  const handleBackToHomePage = () => {
+    setShowPurchaseConfirmation(false);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      {!showRouteOptions ? (
+      {!showRouteOptions && !showPurchaseConfirmation ? (
         <HomePage onDestinationSelect={handleDestinationSelection} />
-      ) : (
+      ) : showRouteOptions ? (
         <>
           <TouchableOpacity onPress={handleBack}>
             <Text style={styles.backButton}>Back</Text>
           </TouchableOpacity>
-          <RouteOptions destination={selectedDestination} />
+          <RouteOptions destination={selectedDestination} onOptionSelected={handleOptionSelection} />
+        </>
+      ) : (
+        <>
+          <TouchableOpacity onPress={handleBackToHomePage}>
+            <Text style={styles.backButton}>Back</Text>
+          </TouchableOpacity>
+          <PurchaseConfirmation />
         </>
       )}
     </SafeAreaView>
@@ -68,24 +85,17 @@ const HomePage = ({ onDestinationSelect }) => {
   );
 };
 
-const RouteOptions = ({ destination, onBack }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const handleOptionSelection = (option) => {
-    setSelectedOption(option);
-  };
-
+const RouteOptions = ({ destination, onOptionSelected }) => {
   const options = [
     { id: 1, name: 'Hammomd to New Orleans', price: '$300' },
     { id: 2, name: 'Baton Rouge to New Orleans', price: '$400' },
-    
   ];
 
   return (
     <>
       <Header
         rightComponent={<Icon name="menu" type="material" color="#000" onPress={() => {}} />}
-        leftComponent={{ icon: 'arrow-back', color: '#000', onPress: onBack }}
+        leftComponent={{ icon: 'arrow-back', color: '#000' }}
         centerComponent={{ text: 'Entrack', style: { color: '#000', fontSize: 18 } }}
         backgroundColor="#a5b4fc"
       />
@@ -100,7 +110,7 @@ const RouteOptions = ({ destination, onBack }) => {
         <Text style={styles.title}>Route Options for {destination.name}</Text>
         <ScrollView style={styles.optionsContainer}>
           {options.map((option) => (
-            <TouchableOpacity key={option.id} style={styles.optionCard} onPress={() => handleOptionSelection(option)}>
+            <TouchableOpacity key={option.id} style={styles.optionCard} onPress={onOptionSelected}>
               <Text style={styles.optionName}>{option.name}</Text>
               <Text style={styles.optionPrice}>{option.price}</Text>
             </TouchableOpacity>
@@ -110,6 +120,16 @@ const RouteOptions = ({ destination, onBack }) => {
     </>
   );
 };
+
+const PurchaseConfirmation = () => {
+  return (
+    <View style={styles.purchaseConfirmationContainer}>
+      <Text style={styles.purchaseConfirmationText}>Thank you for your purchase!</Text>
+    </View>
+  );
+};
+
+
 
 
 const styles = StyleSheet.create({
@@ -200,6 +220,19 @@ const styles = StyleSheet.create({
   },
   optionPrice: {
     fontSize: 20,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+
+  //Confirmation page
+  purchaseConfirmationContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  purchaseConfirmationText: {
+    fontSize: 24,
     fontWeight: 'bold',
     color: '#000',
   },
