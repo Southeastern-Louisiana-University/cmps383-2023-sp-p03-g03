@@ -3,13 +3,13 @@ import { Header, Icon } from 'react-native-elements';
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, ImageBackground, View, Image, ScrollView } from 'react-native';
 
 const HomePage = () => {
-  const [selectedRoute, setSelectedRoute] = useState(null);
+  const [selectedDestination, setSelectedDestination] = useState(null);
 
-  const handleRouteSelection = (route) => {
-    setSelectedRoute(route);
+  const handleDestinationSelection = (destination) => {
+    setSelectedDestination(destination);
   };
 
-  const trainRoutes = [
+  const destinations = [
     { id: 1, name: 'New Orleans' },
     { id: 2, name: 'Hammond' },
     { id: 3, name: 'Baton Rouge' },
@@ -33,23 +33,25 @@ const HomePage = () => {
         style={styles.imageBackground}
         resizeMode="cover"
       >
-        <Text style={styles.title}>Choose a Destination</Text>
-        <ScrollView style={styles.routesContainer}>
-          {trainRoutes.map((route) => (
-            <TouchableOpacity key={route.id} style={styles.routeCard} onPress={() => handleRouteSelection(route)}>
-              <Text style={styles.routeName}>{route.name}</Text>
-            </TouchableOpacity>
-          ))}
+        
+          <Text style={styles.title}>Choose a Destination</Text>
+          <ScrollView style={styles.destinationsContainer}>
+            {destinations.map((destination) => (
+              <TouchableOpacity key={destination.id} style={styles.destinationCard} onPress={() => handleDestinationSelection(destination)}>
+                <Text style={styles.destinationName}>{destination.name}</Text>
+              </TouchableOpacity>
+            ))}
         </ScrollView>
-        {selectedRoute && (
+        {selectedDestination && (
           <TouchableOpacity style={styles.buyButton}>
             <Text style={styles.buttonText}>Buy Ticket</Text>
           </TouchableOpacity>
         )}
       </ImageBackground>
+      {selectedDestination && <DestinationOptions destination={selectedDestination} />}
     </SafeAreaView>
   );
-};
+};;
 
 const styles = StyleSheet.create({
   container: {
