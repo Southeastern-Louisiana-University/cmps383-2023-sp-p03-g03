@@ -36,8 +36,7 @@ const HomePage = ({ onDestinationSelect }) => {
     { id: 1, name: 'New Orleans' },
     { id: 2, name: 'Hammond' },
     { id: 3, name: 'Baton Rouge' },
-    { id: 4, name: 'Lake Charles' },
-    { id: 5, name: 'Monroe' },
+    
     // Add more train routes if needed
   ];
 
@@ -46,7 +45,7 @@ const HomePage = ({ onDestinationSelect }) => {
       <Header
         rightComponent={<Icon name="menu" type="material" color="#fff" onPress={() => {}} />}
         leftComponent={{ text: 'Entrack', style: { color: '#fff', fontSize: 18 } }}
-        backgroundColor="#000"
+        backgroundColor="#a5b4fc"
       />
       <ImageBackground
         source={{
@@ -77,9 +76,9 @@ const RouteOptions = ({ destination, onBack }) => {
   };
 
   const options = [
-    { id: 1, name: 'Option 1', price: '$300' },
-    { id: 2, name: 'Option 2', price: '$400' },
-    { id: 3, name: 'Option 3', price: '$500' },
+    { id: 1, name: 'Hammomd to New Orleans', price: '$300' },
+    { id: 2, name: 'Baton Rouge to New Orleans', price: '$400' },
+    
   ];
 
   return (
@@ -88,7 +87,7 @@ const RouteOptions = ({ destination, onBack }) => {
         rightComponent={<Icon name="menu" type="material" color="#fff" onPress={() => {}} />}
         leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: onBack }}
         centerComponent={{ text: 'Entrack', style: { color: '#fff', fontSize: 18 } }}
-        backgroundColor="#000"
+        backgroundColor="#a5b4fc"
       />
       <ImageBackground
         source={{
@@ -138,14 +137,14 @@ const styles = StyleSheet.create({
   justifyContent: 'center',
   marginBottom: 10,
   padding: 10,
-  backgroundColor: '#0000FF',
+  backgroundColor: '#a5b4fc', //#0000FF
   width: '100%',
   },
   destinationName: {
   fontSize: 20,
   marginRight: 10,
   fontWeight: 'bold',
-  color: '#fff',
+  color: '#000',
   },
   backButton: {
   fontSize: 18,
@@ -190,19 +189,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 10,
     padding: 10,
-    backgroundColor: 'rgba(0, 0, 255, 0.7)', // Make buttons visible with 70% opacity
+    backgroundColor: '#007bff', // Make buttons visible with 70% opacity rgba(0, 0, 255, 0.7)
     width: '100%',
   },
   optionName: {
     fontSize: 20,
     marginRight: 10,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#000',
   },
   optionPrice: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#000',
   },
   });
   
