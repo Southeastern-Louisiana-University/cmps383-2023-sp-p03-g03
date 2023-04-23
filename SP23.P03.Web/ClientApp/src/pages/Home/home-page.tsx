@@ -32,7 +32,7 @@ export function HomePage(): React.ReactElement {
           <nav>
             <div className="menu">
               <div className="logo">
-                <a href="/#">EnTrack</a>
+                <a href="/">EnTrack</a>
               </div>
               <ul>
               <li><button className='btn btn-4' onClick={() => { navigate(routes.signup); } }>Sign-Up</button></li>
