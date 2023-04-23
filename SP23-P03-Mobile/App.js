@@ -1,14 +1,37 @@
 import React, { useState } from 'react';
 import { Header, Icon } from 'react-native-elements';
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, ImageBackground, View, Image, ScrollView } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, ImageBackground, View, ScrollView } from 'react-native';
 
-const HomePage = () => {
+const App = () => {
   const [selectedDestination, setSelectedDestination] = useState(null);
+  const [showRouteOptions, setShowRouteOptions] = useState(false);
 
   const handleDestinationSelection = (destination) => {
     setSelectedDestination(destination);
+    setShowRouteOptions(true);
   };
 
+  const handleBack = () => {
+    setShowRouteOptions(false);
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      {!showRouteOptions ? (
+        <HomePage onDestinationSelect={handleDestinationSelection} />
+      ) : (
+        <>
+          <TouchableOpacity onPress={handleBack}>
+            <Text style={styles.backButton}>Back</Text>
+          </TouchableOpacity>
+          <RouteOptions destination={selectedDestination} />
+        </>
+      )}
+    </SafeAreaView>
+  );
+};
+
+const HomePage = ({ onDestinationSelect }) => {
   const destinations = [
     { id: 1, name: 'New Orleans' },
     { id: 2, name: 'Hammond' },
@@ -33,27 +56,20 @@ const HomePage = () => {
         style={styles.imageBackground}
         resizeMode="cover"
       >
-        
-          <Text style={styles.title}>Choose a Destination</Text>
-          <ScrollView style={styles.destinationsContainer}>
-            {destinations.map((destination) => (
-              <TouchableOpacity key={destination.id} style={styles.destinationCard} onPress={() => handleDestinationSelection(destination)}>
-                <Text style={styles.destinationName}>{destination.name}</Text>
-              </TouchableOpacity>
-            ))}
+        <Text style={styles.title}>Choose a Destination</Text>
+        <ScrollView style={styles.destinationsContainer}>
+          {destinations.map((destination) => (
+            <TouchableOpacity key={destination.id} style={styles.destinationCard} onPress={() => onDestinationSelect(destination)}>
+              <Text style={styles.destinationName}>{destination.name}</Text>
+            </TouchableOpacity>
+          ))}
         </ScrollView>
-        {selectedDestination && (
-          <TouchableOpacity style={styles.buyButton}>
-            <Text style={styles.buttonText}>Buy Ticket</Text>
-          </TouchableOpacity>
-        )}
       </ImageBackground>
-      {selectedDestination && <DestinationOptions destination={selectedDestination} />}
     </SafeAreaView>
   );
 };
 
-const RouteOptions = ({ destination }) => {
+const RouteOptions = ({ destination, onBack }) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionSelection = (option) => {
@@ -67,27 +83,92 @@ const RouteOptions = ({ destination }) => {
   ];
 
   return (
-    <View style={styles.routeOptionsContainer}>
-      <Text style={styles.routeOptionsTitle}>Route Options for {destination.name}</Text>
-      {options.map((option) => (
-        <TouchableOpacity key={option.id} style={styles.optionCard} onPress={() => handleOptionSelection(option)}>
-          <Text style={styles.optionName}>{option.name}</Text>
-          <Text style={styles.optionPrice}>{option.price}</Text>
-        </TouchableOpacity>
-      ))}
-      {selectedOption && (
-        <TouchableOpacity style={styles.buyButton}>
-          <Text style={styles.buttonText}>Buy Ticket</Text>
-        </TouchableOpacity>
-      )}
-    </View>
+    <>
+      <Header
+        rightComponent={<Icon name="menu" type="material" color="#fff" onPress={() => {}} />}
+        leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: onBack }}
+        centerComponent={{ text: 'Entrack', style: { color: '#fff', fontSize: 18 } }}
+        backgroundColor="#000"
+      />
+      <ImageBackground
+        source={{
+          uri:
+            'https://images.unsplash.com/photo-1496850574977-a4607106a874?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+        }}
+        style={styles.imageBackground}
+        resizeMode="cover"
+      >
+        <Text style={styles.title}>Route Options for {destination.name}</Text>
+        <ScrollView style={styles.optionsContainer}>
+          {options.map((option) => (
+            <TouchableOpacity key={option.id} style={styles.optionCard} onPress={() => handleOptionSelection(option)}>
+              <Text style={styles.optionName}>{option.name}</Text>
+              <Text style={styles.optionPrice}>{option.price}</Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      </ImageBackground>
+    </>
   );
 };
 
+
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+  flex: 1,
   },
+  imageBackground: {
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  paddingHorizontal: 20,
+  },
+  title: {
+  fontSize: 24,
+  fontWeight: 'bold',
+  marginBottom: 20,
+  color: '#FFF',
+  },
+  destinationsContainer: {
+  width: '100%',
+  },
+  destinationCard: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'center',
+  marginBottom: 10,
+  padding: 10,
+  backgroundColor: '#0000FF',
+  width: '100%',
+  },
+  destinationName: {
+  fontSize: 20,
+  marginRight: 10,
+  fontWeight: 'bold',
+  color: '#fff',
+  },
+  backButton: {
+  fontSize: 18,
+  fontWeight: '600',
+  color: '#000',
+  alignSelf: 'flex-start',
+  marginLeft: 20,
+  },
+  buyButton: {
+  backgroundColor: '#007bff',
+  borderRadius: 5,
+  padding: 10,
+  paddingHorizontal: 20,
+  marginTop: 20,
+  },
+  buttonText: {
+  color: '#fff',
+  fontSize: 18,
+  fontWeight: '600',
+  },
+
+
+  //RouteOptions styles
   imageBackground: {
     flex: 1,
     justifyContent: 'center',
@@ -100,37 +181,30 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: '#FFF',
   },
-  destinationContainer: {
+  optionsContainer: {
     width: '100%',
   },
-  destinationCard: {
+  optionCard: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
     padding: 10,
-    backgroundColor: '#0000FF',
+    backgroundColor: 'rgba(0, 0, 255, 0.7)', // Make buttons visible with 70% opacity
     width: '100%',
   },
-  destinationName: {
+  optionName: {
     fontSize: 20,
     marginRight: 10,
-    fontweight: 'bold',
+    fontWeight: 'bold',
     color: '#fff',
   },
-  buyButton: {
-    backgroundColor: '#007bff',
-    borderRadius: 5,
-    padding: 10,
-    paddingHorizontal: 20,
-    marginTop: 20,
-  },
-  buttonText: {
+  optionPrice: {
+    fontSize: 20,
+    fontWeight: 'bold',
     color: '#fff',
-    fontSize: 18,
-    fontWeight: '600',
   },
-});
-
-export default HomePage;
+  });
+  
+  export default App;
 
