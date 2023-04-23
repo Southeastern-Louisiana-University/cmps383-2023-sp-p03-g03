@@ -51,7 +51,38 @@ const HomePage = () => {
       {selectedDestination && <DestinationOptions destination={selectedDestination} />}
     </SafeAreaView>
   );
-};;
+};
+
+const RouteOptions = ({ destination }) => {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const handleOptionSelection = (option) => {
+    setSelectedOption(option);
+  };
+
+  const options = [
+    { id: 1, name: 'Option 1', price: '$300' },
+    { id: 2, name: 'Option 2', price: '$400' },
+    { id: 3, name: 'Option 3', price: '$500' },
+  ];
+
+  return (
+    <View style={styles.routeOptionsContainer}>
+      <Text style={styles.routeOptionsTitle}>Route Options for {destination.name}</Text>
+      {options.map((option) => (
+        <TouchableOpacity key={option.id} style={styles.optionCard} onPress={() => handleOptionSelection(option)}>
+          <Text style={styles.optionName}>{option.name}</Text>
+          <Text style={styles.optionPrice}>{option.price}</Text>
+        </TouchableOpacity>
+      ))}
+      {selectedOption && (
+        <TouchableOpacity style={styles.buyButton}>
+          <Text style={styles.buttonText}>Buy Ticket</Text>
+        </TouchableOpacity>
+      )}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
