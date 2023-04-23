@@ -69,18 +69,19 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     color: '#FFF',
   },
-  routesContainer: {
+  destinationContainer: {
     width: '100%',
   },
-  routeCard: {
+  destinationCard: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 10,
     padding: 10,
     backgroundColor: '#0000FF',
+    width: '100%',
   },
-  routeName: {
+  destinationName: {
     fontSize: 20,
     marginRight: 10,
     fontweight: 'bold',
