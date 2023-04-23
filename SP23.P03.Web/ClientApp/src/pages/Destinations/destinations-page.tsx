@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Divider, Grid, Icon, Segment } from "semantic-ui-react";
 import { useUser } from "../../components/AuthProvider";
