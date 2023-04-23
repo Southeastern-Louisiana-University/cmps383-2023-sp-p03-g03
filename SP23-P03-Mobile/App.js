@@ -43,8 +43,8 @@ const HomePage = ({ onDestinationSelect }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header
-        rightComponent={<Icon name="menu" type="material" color="#fff" onPress={() => {}} />}
-        leftComponent={{ text: 'Entrack', style: { color: '#fff', fontSize: 18 } }}
+        rightComponent={<Icon name="menu" type="material" color="#000" onPress={() => {}} />}
+        leftComponent={{ text: 'Entrack', style: { color: '#000', fontSize: 18 } }}
         backgroundColor="#a5b4fc"
       />
       <ImageBackground
@@ -84,9 +84,9 @@ const RouteOptions = ({ destination, onBack }) => {
   return (
     <>
       <Header
-        rightComponent={<Icon name="menu" type="material" color="#fff" onPress={() => {}} />}
-        leftComponent={{ icon: 'arrow-back', color: '#fff', onPress: onBack }}
-        centerComponent={{ text: 'Entrack', style: { color: '#fff', fontSize: 18 } }}
+        rightComponent={<Icon name="menu" type="material" color="#000" onPress={() => {}} />}
+        leftComponent={{ icon: 'arrow-back', color: '#000', onPress: onBack }}
+        centerComponent={{ text: 'Entrack', style: { color: '#000', fontSize: 18 } }}
         backgroundColor="#a5b4fc"
       />
       <ImageBackground
