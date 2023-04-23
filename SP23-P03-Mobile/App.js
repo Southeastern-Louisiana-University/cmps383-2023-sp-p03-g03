@@ -102,7 +102,7 @@ const RouteOptions = ({ destination, onOptionSelected }) => {
       <ImageBackground
         source={{
           uri:
-            'https://images.unsplash.com/photo-1496850574977-a4607106a874?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+            'https://images.unsplash.com/photo-1614108976759-57ac1d43b3f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
         }}
         style={styles.imageBackground}
         resizeMode="cover"
@@ -121,13 +121,30 @@ const RouteOptions = ({ destination, onOptionSelected }) => {
   );
 };
 
+
+
 const PurchaseConfirmation = () => {
   return (
-    <View style={styles.purchaseConfirmationContainer}>
-      <Text style={styles.purchaseConfirmationText}>Thank you for your purchase!</Text>
-    </View>
+    <ImageBackground
+      source={{
+        uri:
+          'https://images.unsplash.com/photo-1532105956626-9569c03602f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+      }}
+      style={styles.confirmationContainer}
+      resizeMode="cover"
+    >
+      <Header
+        centerComponent={{ text: 'Entrack', style: { color: '#000', fontSize: 18 } }}
+        backgroundColor="#a5b4fc"
+      />
+      <View style={styles.confirmationTextContainer}>
+        <Text style={styles.confirmationText}>Thank you for your purchase!</Text>
+      </View>
+    </ImageBackground>
   );
 };
+
+
 
 
 
@@ -225,17 +242,25 @@ const styles = StyleSheet.create({
   },
 
   //Confirmation page
-  purchaseConfirmationContainer: {
+  confirmationContainer: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  confirmationTextContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
   },
-  purchaseConfirmationText: {
+  confirmationText: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#fff',
   },
+  
+  
   });
   
   export default App;
