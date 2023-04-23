@@ -21,9 +21,9 @@ const HomePage = () => {
   };
 
   const trainRoutes = [
-    { id: 1, name: 'Route 1', price: '$300' },
-    { id: 2, name: 'Route 2', price: '$400' },
-    { id: 3, name: 'Route 3', price: '$500' },
+    { id: 1, name: 'New Orleans', price: '$300' },
+    { id: 2, name: 'Hammond', price: '$400' },
+    { id: 3, name: 'Baton Rouge', price: '$500' },
     // Add more train routes if needed
   ];
 
@@ -37,11 +37,11 @@ const HomePage = () => {
         backgroundColor="#000"
       />
       <ImageBackground
-        source={{ uri: 'https://unsplash.com/photos/oEIFOoC3gi0/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Mnx8dHJhaW5zJTIwaW4lMjBtb3VudGFpbnN8ZW58MHx8fHwxNjgxODc4NTM5&force=true&w=2400' }}
+        source={{ uri: 'https://images.unsplash.com/photo-1496850574977-a4607106a874?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' }}
         style={styles.imageBackground}
         resizeMode="cover"
       >
-        <Text style={styles.title}>Choose a Train Route</Text>
+        <Text style={styles.title}>Choose a Destination</Text>
         <ScrollView style={styles.routesContainer}>
           {trainRoutes.map((route) => (
             <TouchableOpacity key={route.id} style={styles.routeCard} onPress={() => handleRouteSelection(route)}>
@@ -69,20 +69,25 @@ const HomePage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    
+    
   },
   imageBackground: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+    
+    
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#FFF',
+    color: '#fff',
   },
   routesContainer: {
+    
     width: '100%',
   },
   routeCard: {
@@ -97,11 +102,13 @@ const styles = StyleSheet.create({
   routeName: {
     fontSize: 18,
     marginRight: 10,
+    color: '#fff',
   },
   routePrice: {
     fontSize: 18,
     fontWeight: 'bold',
     marginRight: 10,
+    color: '#fff',
   },
   buyButton: {
     backgroundColor: '#007bff',
