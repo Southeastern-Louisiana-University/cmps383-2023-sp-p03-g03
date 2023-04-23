@@ -1,17 +1,6 @@
 import React, { useState } from 'react';
-
 import { Header, Icon } from 'react-native-elements';
-
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  ImageBackground,
-  View,
-  Image,
-  ScrollView, // Add this line
-} from 'react-native';
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, ImageBackground, View, Image, ScrollView } from 'react-native';
 
 const HomePage = () => {
   const [selectedRoute, setSelectedRoute] = useState(null);
@@ -21,23 +10,26 @@ const HomePage = () => {
   };
 
   const trainRoutes = [
-    { id: 1, name: 'New Orleans', price: '$300' },
-    { id: 2, name: 'Hammond', price: '$400' },
-    { id: 3, name: 'Baton Rouge', price: '$500' },
+    { id: 1, name: 'New Orleans' },
+    { id: 2, name: 'Hammond' },
+    { id: 3, name: 'Baton Rouge' },
+    { id: 4, name: 'Lake Charles' },
+    { id: 5, name: 'Monroe' },
     // Add more train routes if needed
   ];
 
   return (
     <SafeAreaView style={styles.container}>
       <Header
-        rightComponent={
-          <Icon name="menu" type="material" color="#fff" onPress={() => {}} /> // Add drawer functionality if needed
-        }
+        rightComponent={<Icon name="menu" type="material" color="#fff" onPress={() => {}} />}
         leftComponent={{ text: 'Entrack', style: { color: '#fff', fontSize: 18 } }}
         backgroundColor="#000"
       />
       <ImageBackground
-        source={{ uri: 'https://images.unsplash.com/photo-1496850574977-a4607106a874?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80' }}
+        source={{
+          uri:
+            'https://images.unsplash.com/photo-1496850574977-a4607106a874?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+        }}
         style={styles.imageBackground}
         resizeMode="cover"
       >
@@ -46,10 +38,6 @@ const HomePage = () => {
           {trainRoutes.map((route) => (
             <TouchableOpacity key={route.id} style={styles.routeCard} onPress={() => handleRouteSelection(route)}>
               <Text style={styles.routeName}>{route.name}</Text>
-              <Text style={styles.routePrice}>{route.price}</Text>
-              {selectedRoute && selectedRoute.id === route.id && (
-                <QRCode value={route.id.toString()} size={80} />
-              )}
             </TouchableOpacity>
           ))}
         </ScrollView>
@@ -62,37 +50,30 @@ const HomePage = () => {
     </SafeAreaView>
   );
 };
-  
-
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    
-    
   },
   imageBackground: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-    
-    
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#fff',
+    color: '#FFF',
   },
   routesContainer: {
-    
     width: '100%',
   },
   routeCard: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 10,
     padding: 10,
     borderWidth: 1,
@@ -100,14 +81,9 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   routeName: {
-    fontSize: 18,
+    fontSize: 20,
     marginRight: 10,
-    color: '#fff',
-  },
-  routePrice: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginRight: 10,
+    fontweight: 'bold',
     color: '#fff',
   },
   buyButton: {
@@ -122,6 +98,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
   },
-});    
+});
 
-  export default HomePage;
+export default HomePage;
+
