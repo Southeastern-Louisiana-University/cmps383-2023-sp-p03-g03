@@ -31,17 +31,11 @@ const App = () => {
         <HomePage onDestinationSelect={handleDestinationSelection} />
       ) : showRouteOptions ? (
         <>
-          <TouchableOpacity onPress={handleBack}>
-            <Text style={styles.backButton}>Back</Text>
-          </TouchableOpacity>
-          <RouteOptions destination={selectedDestination} onOptionSelected={handleOptionSelection} />
+          <RouteOptions destination={selectedDestination} onOptionSelected={handleOptionSelection} onBack={handleBack} />
         </>
       ) : (
         <>
-          <TouchableOpacity onPress={handleBackToHomePage}>
-            <Text style={styles.backButton}>Back</Text>
-          </TouchableOpacity>
-          <PurchaseConfirmation />
+          <PurchaseConfirmation onBack={handleBackToHomePage} />
         </>
       )}
     </SafeAreaView>
@@ -95,7 +89,7 @@ const RouteOptions = ({ destination, onOptionSelected }) => {
     <>
       <Header
         rightComponent={<Icon name="menu" type="material" color="#000" onPress={() => {}} />}
-        leftComponent={{ icon: 'arrow-back', color: '#000' }}
+        leftComponent={{ icon: 'arrow-back', color: '#000', onPress: () => onBack() }}
         centerComponent={{ text: 'Entrack', style: { color: '#000', fontSize: 18 } }}
         backgroundColor="#a5b4fc"
       />
@@ -123,7 +117,7 @@ const RouteOptions = ({ destination, onOptionSelected }) => {
 
 
 
-const PurchaseConfirmation = () => {
+const PurchaseConfirmation = ({ onBack }) => {
   return (
     <ImageBackground
       source={{
@@ -134,6 +128,7 @@ const PurchaseConfirmation = () => {
       resizeMode="cover"
     >
       <Header
+        leftComponent={{ icon: 'arrow-back', color: '#000', onPress: onBack }}
         centerComponent={{ text: 'Entrack', style: { color: '#000', fontSize: 18 } }}
         backgroundColor="#a5b4fc"
       />
