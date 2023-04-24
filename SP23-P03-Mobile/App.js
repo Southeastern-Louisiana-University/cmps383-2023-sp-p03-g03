@@ -87,7 +87,7 @@ const HomePage = ({ onDestinationSelect }) => {
 
 const RouteOptions = ({ destination, onOptionSelected }) => {
   const options = [
-    { id: 1, name: 'Hammomd to New Orleans', price: '$300' },
+    { id: 1, name: 'Hammond to New Orleans', price: '$300' },
     { id: 2, name: 'Baton Rouge to New Orleans', price: '$400' },
   ];
 
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 10,
     padding: 10,
-    backgroundColor: '#007bff', // Make buttons visible with 70% opacity rgba(0, 0, 255, 0.7)
+    backgroundColor: '#a5b4fc', // Make buttons visible with 70% opacity rgba(0, 0, 255, 0.7)
     width: '100%',
   },
   optionName: {
